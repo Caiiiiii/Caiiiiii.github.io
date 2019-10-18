@@ -84,7 +84,90 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: hexo-casper
+
+
+# Config
+rss:            # link
+favicon: https://i.loli.net/2017/11/26/5a19c0b50432e.png
+blog_logo: 
+header_image: https://i.loli.net/2017/11/26/5a19c56faa29f.jpg
+bio: This is a demo
+post_toc: true
+
+# 菜单
+menu:
+  About: /about
+  Archives: /archives
+  # 其他的可以按照上面的模板添加
+
+# 作者
+author_image:   # 链接
+author_bio:     # 描述
+author_location: # 地址
+
+# 社交链接
+social:
+  facebook: https://www.facebook.com
+  twitter: https://www.twitter.com
+  twitter: https://twitter.com
+  facebook: https://facebook
+  telegram:
+  bilibili:
+  youtube:
+  
+# 插件（显示在网站底部）
+widgets:
+  recent_posts: true
+  category: true
+  tagcloud: true
+  # 这是个简洁的主题，我认为3个就够了
+
+# 搜索插件
+search:
+  path: search.xml
+  field: post
+  content: true
+
+
+# 文章图片相册（点击图片可以放大）
+# https://github.com/dimsemenov/PhotoSwipe
+lightgallery: true
+
+# 懒加载
+# 首页已经默认开启，其他页面在此开启
+# https://github.com/dinbror/blazy
+lazyload: true
+
+# 搜索功能
+local_search: true
+
+# Valine 评论系统
+# https://valine.js.org
+comment: false
+valine:
+  notify: false # mail notifier , https://github.com/xCss/Valine/wiki 
+  verify: false # Verification code
+  appId: # your leancloud application appid
+  appKey: # your leancloud application appkey
+  placeholder: Just go go # comment box placeholder
+  avatar: mm # gravatar style
+  pageSize: 10 # pagination size
+  visitor: true # page view record
+
+# PWA 
+# 你需要在 hexo 目录的 source 文件夹里创建一个 manifest.json 文件
+manifest: false
+service_workers: false
+
+navColor: '3c484e'
+
+# Baidu 链接提交
+baidu: false
+
+# Google Analytics
+googleAnalytics: false
+GA_TRACKING_ID: UA-XXXXXXXXXX-1
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
