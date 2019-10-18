@@ -1,109 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+
+
+
+
+
+
 <head>
-  <meta charset="utf-8">
-  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
 
-  
-  <title>Java并发 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="var NexT = window.NexT || {};   var CONFIG = {     root: &amp;apos;&#x2F;&amp;apos;,     s">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java并发">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;18&#x2F;Java%E5%B9%B6%E5%8F%91&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="var NexT = window.NexT || {};   var CONFIG = {     root: &amp;apos;&#x2F;&amp;apos;,     s">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz5h1ytxr6j21us0m6ats.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz3v4hjr1tj20ot0do0ta.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz43y4q0afj209t09e0sx.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz44mum3yjj20ae0an0t0.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz44oal1fvj20840de0t7.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz45rdaglwj20l40cy0to.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz5f1lsyspj20pw08j0su.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz5f4akq2nj20n40bs0t2.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz5f56hpm7j20k30580sn.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz5foel2q8j20df0cy0ss.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz5fraifkjj20e20i00sv.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz9lehkzaej20990830sw.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz9log0fynj20hc09v0t5.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz9lwdisswj20kb0aa0ta.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz9mfncm5vj20gw0910t3.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz9mgq3h0zj20h708m0t4.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz9o2fs2cpj20mb0bw0sq.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;bz.gif">
-<meta property="og:updated_time" content="2019-03-07T17:30:12.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;ww1.sinaimg.cn&#x2F;large&#x2F;bfd348c6gy1fz5h1ytxr6j21us0m6ats.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+	<title>Java并发 | Hexo</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="John Doe">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
+	<link rel="apple-touch-icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="Hexo">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Java并发 | Hexo">
+	<meta property="og:description" content>
+	<meta property="og:url" content="http://yoursite.com/2019/10/18/Java%E5%B9%B6%E5%8F%91/">
+
+	
+	<meta property="article:published_time" content="2019-10-18T15:10:11+08:00"> 
+	<meta property="article:author" content="John Doe">
+	<meta property="article:published_first" content="Hexo, /2019/10/18/Java%E5%B9%B6%E5%8F%91/">
+	
+
+	
+	
+	<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+	
+	
+	
 </head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
     </div>
-  </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    <a class="social-link" title="weibo" href="https://weibo.com/xzhih" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1141 1024" xmlns="http://www.w3.org/2000/svg"><path d="M916.48 518.144q27.648 21.504 38.912 51.712t9.216 62.976-14.336 65.536-31.744 59.392q-34.816 48.128-78.848 81.92t-91.136 56.32-94.72 35.328-89.6 18.944-75.264 7.68-51.712 1.536-49.152-2.56-68.096-10.24-78.336-21.504-79.872-36.352-74.24-55.296-59.904-78.848q-16.384-29.696-22.016-63.488t-5.632-86.016q0-22.528 7.68-51.2t27.136-63.488 53.248-75.776 86.016-90.112q51.2-48.128 105.984-85.504t117.248-57.856q28.672-10.24 63.488-11.264t57.344 11.264q10.24 11.264 19.456 23.04t12.288 29.184q3.072 14.336 0.512 27.648t-5.632 26.624-5.12 25.6 2.048 22.528q17.408 2.048 33.792-1.536t31.744-9.216 31.232-11.776 33.28-9.216q27.648-5.12 54.784-4.608t49.152 7.68 36.352 22.016 17.408 38.4q2.048 14.336-2.048 26.624t-8.704 23.04-7.168 22.016 1.536 23.552q3.072 7.168 14.848 13.312t27.136 12.288 32.256 13.312 29.184 16.384zM658.432 836.608q26.624-16.384 53.76-45.056t44.032-64 18.944-75.776-20.48-81.408q-19.456-33.792-47.616-57.344t-62.976-37.376-74.24-19.968-80.384-6.144q-78.848 0-139.776 16.384t-105.472 43.008-72.192 60.416-38.912 68.608q-11.264 33.792-6.656 67.072t20.992 62.976 42.496 53.248 57.856 37.888q58.368 25.6 119.296 32.256t116.224 0.512 100.864-21.504 74.24-33.792zM524.288 513.024q20.48 8.192 38.912 18.432t32.768 27.648q10.24 12.288 17.92 30.72t10.752 39.424 1.536 42.496-9.728 38.912q-8.192 18.432-19.968 37.376t-28.672 35.328-40.448 29.184-57.344 18.944q-61.44 11.264-117.76-11.264t-88.064-74.752q-12.288-39.936-13.312-70.656t16.384-66.56q13.312-27.648 40.448-51.712t62.464-38.912 75.264-17.408 78.848 12.8zM361.472 764.928q37.888 3.072 57.856-18.432t21.504-48.128-15.36-47.616-52.736-16.896q-27.648 3.072-43.008 23.552t-17.408 43.52 9.728 42.496 39.424 21.504zM780.288 6.144q74.752 0 139.776 19.968t113.664 57.856 76.288 92.16 27.648 122.88q0 33.792-16.384 50.688t-35.328 17.408-35.328-14.336-16.384-45.568q0-40.96-22.528-77.824t-59.392-64.512-84.48-43.52-96.768-15.872q-31.744 0-47.104-15.36t-14.336-34.304 18.944-34.304 51.712-15.36zM780.288 169.984q95.232 0 144.384 48.64t49.152 146.944q0 30.72-10.24 43.52t-22.528 11.264-22.528-14.848-10.24-35.84q0-60.416-34.816-96.256t-93.184-35.84q-19.456 0-28.672-10.752t-9.216-23.04 9.728-23.04 28.16-10.752z"/></svg>
+    </a>
+    
+    
+    <a class="social-link" title="github" href="https://github.com/xzhih" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    <a class="social-link" title="facebook" href="https://facebook" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+    </a>
+    
+    
+    <a class="social-link" title="twitter" href="https://twitter.com" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+    </a>
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-Java并发" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/18/Java%E5%B9%B6%E5%8F%91/" class="article-date">
-  <time datetime="2019-10-18T03:14:42.536Z" itemprop="datePublished">2019-10-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Java并发
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2019-10-18T07:33:05.112Z">
+                    2019-10-18
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                
+            </div>
+            <h1 class="post-full-title">Java并发</h1>
+        </header>
+        <div class="post-full no-image">
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <!DOCTYPE html>
 
 
 
@@ -112,9 +167,9 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -125,8 +180,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -145,7 +200,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -153,9 +208,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -173,7 +228,7 @@
 
 
 
-  <meta name="keywords" content="Abc, A" />
+  <meta name="keywords" content="Abc, A">
 
 
 
@@ -239,7 +294,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/17/Java并发/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/17/Java并发/">
 
 
 
@@ -273,7 +328,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Caiiiiii's blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -303,7 +358,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -313,7 +368,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -323,7 +378,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -333,7 +388,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -343,7 +398,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -386,7 +441,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caiiiiii">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/bz.gif">
     </span>
 
@@ -428,10 +483,10 @@
             
 
             
-          </span>
+          
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -480,8 +535,8 @@
       
 
       
-        <p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5h1ytxr6j21us0m6ats.jpg" alt=""><br><a id="more"></a></p>
-<h1 id="线程状态转换"><a href="#线程状态转换" class="headerlink" title="线程状态转换"></a>线程状态转换</h1><p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz3v4hjr1tj20ot0do0ta.jpg" alt=""></p>
+        <p><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5h1ytxr6j21us0m6ats.jpg" data-index="0" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5h1ytxr6j21us0m6ats.jpg"><br><a id="more"></a></p>
+<h1 id="线程状态转换"><a href="#线程状态转换" class="headerlink" title="线程状态转换"></a>线程状态转换</h1><p><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz3v4hjr1tj20ot0do0ta.jpg" data-index="1" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz3v4hjr1tj20ot0do0ta.jpg"></p>
 <h2 id="新建（New）"><a href="#新建（New）" class="headerlink" title="新建（New）"></a>新建（New）</h2><p>创建后尚未启动。</p>
 <h2 id="可运行（Runnable）"><a href="#可运行（Runnable）" class="headerlink" title="可运行（Runnable）"></a>可运行（Runnable）</h2><p>可能正在运行，也可能正在等待CPU时间片。<br>包含了操作系统线程状态中Running和Ready。</p>
 <h2 id="阻塞（Blocking）"><a href="#阻塞（Blocking）" class="headerlink" title="阻塞（Blocking）"></a>阻塞（Blocking）</h2><p>等待获取一个排他锁，如果其线程释放了锁就会结束此状态。</p>
@@ -584,13 +639,13 @@
 <p>相比于 wait() 这种等待方式，await() 指定等待的条件，因此更加灵活。<br>使用Lock 来获取一个 Condition 对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class AwaitSignalExample &#123;</span><br><span class="line"></span><br><span class="line">    private Lock lock = new ReentrantLock();</span><br><span class="line">    private Condition condition = lock.newCondition();</span><br><span class="line"></span><br><span class="line">    public void before() &#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        try &#123;</span><br><span class="line">            System.out.println(&quot;before&quot;);</span><br><span class="line">            condition.signalAll();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void after() &#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        try &#123;</span><br><span class="line">            condition.await();</span><br><span class="line">            System.out.println(&quot;after&quot;);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">    AwaitSignalExample example = new AwaitSignalExample();</span><br><span class="line">    executorService.execute(() -&gt; example.after());</span><br><span class="line">    executorService.execute(() -&gt; example.before());</span><br><span class="line">&#125;</span><br><span class="line">before</span><br><span class="line">after</span><br></pre></td></tr></table></figure></p>
 <h1 id="J-U-C-AQS"><a href="#J-U-C-AQS" class="headerlink" title="J.U.C - AQS"></a>J.U.C - AQS</h1><p>java.util.concurrent（J.U.C）大大提高了并发性能，AQS 被认为是 J.U.C 的核心。</p>
 <h2 id="CountdownLatch"><a href="#CountdownLatch" class="headerlink" title="CountdownLatch"></a>CountdownLatch</h2><p>用来控制一个线程等待多个线程。</p>
-<p>维护了一个计数器 cnt，每次调用 countDown() 方法会让计数器的值减 1，减到 0 的时候，那些因为调用 await() 方法而在等待的线程就会被唤醒。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz43y4q0afj209t09e0sx.jpg" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class CountdownLatchExample &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        final int totalThread = 10;</span><br><span class="line">        CountDownLatch countDownLatch = new CountDownLatch(totalThread);</span><br><span class="line">        ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">        for (int i = 0; i &lt; totalThread; i++) &#123;</span><br><span class="line">            executorService.execute(() -&gt; &#123;</span><br><span class="line">                System.out.print(&quot;run..&quot;);</span><br><span class="line">                countDownLatch.countDown();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        countDownLatch.await();</span><br><span class="line">        System.out.println(&quot;end&quot;);</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">run..run..run..run..run..run..run..run..run..run..end</span><br></pre></td></tr></table></figure></p>
+<p>维护了一个计数器 cnt，每次调用 countDown() 方法会让计数器的值减 1，减到 0 的时候，那些因为调用 await() 方法而在等待的线程就会被唤醒。<br><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz43y4q0afj209t09e0sx.jpg" data-index="2" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz43y4q0afj209t09e0sx.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class CountdownLatchExample &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        final int totalThread = 10;</span><br><span class="line">        CountDownLatch countDownLatch = new CountDownLatch(totalThread);</span><br><span class="line">        ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">        for (int i = 0; i &lt; totalThread; i++) &#123;</span><br><span class="line">            executorService.execute(() -&gt; &#123;</span><br><span class="line">                System.out.print(&quot;run..&quot;);</span><br><span class="line">                countDownLatch.countDown();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        countDownLatch.await();</span><br><span class="line">        System.out.println(&quot;end&quot;);</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">run..run..run..run..run..run..run..run..run..run..end</span><br></pre></td></tr></table></figure></p>
 <h2 id="CyclicBarrier"><a href="#CyclicBarrier" class="headerlink" title="CyclicBarrier"></a>CyclicBarrier</h2><p>用来控制多个线程互相等待，只有当多个线程都到达时，这些线程才会继续执行。</p>
 <p>和 CountdownLatch 相似，都是通过维护计数器来实现的。线程执行 await() 方法之后计数器会减 1，并进行等待，直到计数器为 0，所有调用 await() 方法而在等待的线程才能继续执行。</p>
 <p>CyclicBarrier 和 CountdownLatch 的一个区别是，CyclicBarrier 的计数器通过调用 reset() 方法可以循环使用，所以它才叫做循环屏障。</p>
 <p>CyclicBarrier 有两个构造函数，其中 parties 指示计数器的初始值，barrierAction 在所有线程都到达屏障的时候会执行一次。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public CyclicBarrier(int parties, Runnable barrierAction) &#123;</span><br><span class="line">    if (parties &lt;= 0) throw new IllegalArgumentException();</span><br><span class="line">    this.parties = parties;</span><br><span class="line">    this.count = parties;</span><br><span class="line">    this.barrierCommand = barrierAction;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public CyclicBarrier(int parties) &#123;</span><br><span class="line">    this(parties, null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz44mum3yjj20ae0an0t0.jpg" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class CyclicBarrierExample &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        final int totalThread = 10;</span><br><span class="line">        CyclicBarrier cyclicBarrier = new CyclicBarrier(totalThread);</span><br><span class="line">        ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">        for (int i = 0; i &lt; totalThread; i++) &#123;</span><br><span class="line">            executorService.execute(() -&gt; &#123;</span><br><span class="line">                System.out.print(&quot;before..&quot;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    cyclicBarrier.await();</span><br><span class="line">                &#125; catch (InterruptedException | BrokenBarrierException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.print(&quot;after..&quot;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">before..before..before..before..before..before..before..before..before..before..after..after..after..after..after..after..after..after..after..after..</span><br></pre></td></tr></table></figure></p>
-<h2 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h2><p>Semaphore 类似于操作系统中的信号量，可以控制对互斥资源的访问线程数。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz44oal1fvj20840de0t7.jpg" alt=""></p>
+<p><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz44mum3yjj20ae0an0t0.jpg" data-index="3" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz44mum3yjj20ae0an0t0.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class CyclicBarrierExample &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        final int totalThread = 10;</span><br><span class="line">        CyclicBarrier cyclicBarrier = new CyclicBarrier(totalThread);</span><br><span class="line">        ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">        for (int i = 0; i &lt; totalThread; i++) &#123;</span><br><span class="line">            executorService.execute(() -&gt; &#123;</span><br><span class="line">                System.out.print(&quot;before..&quot;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    cyclicBarrier.await();</span><br><span class="line">                &#125; catch (InterruptedException | BrokenBarrierException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.print(&quot;after..&quot;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">before..before..before..before..before..before..before..before..before..before..after..after..after..after..after..after..after..after..after..after..</span><br></pre></td></tr></table></figure></p>
+<h2 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h2><p>Semaphore 类似于操作系统中的信号量，可以控制对互斥资源的访问线程数。<br><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz44oal1fvj20840de0t7.jpg" data-index="4" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz44oal1fvj20840de0t7.jpg"></p>
 <p>以下代码模拟了对某个服务的并发请求，每次只能有3个客户端同时访问，请求总数为10。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class SemaphoreExample &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        final int clientCount = 3;</span><br><span class="line">        final int totalRequestCount = 10;</span><br><span class="line">        Semaphore semaphore = new Semaphore(clientCount);</span><br><span class="line">        ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">        for (int i = 0; i &lt; totalRequestCount; i++) &#123;</span><br><span class="line">            executorService.execute(()-&gt;&#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    semaphore.acquire();</span><br><span class="line">                    System.out.print(semaphore.availablePermits() + &quot; &quot;);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; finally &#123;</span><br><span class="line">                    semaphore.release();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">2 1 2 2 2 2 2 1 2 2</span><br></pre></td></tr></table></figure></p>
 <h1 id="J-U-C-其它组件"><a href="#J-U-C-其它组件" class="headerlink" title="J.U.C - 其它组件"></a>J.U.C - 其它组件</h1><h2 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h2><p>在介绍Callable时我们知道它可以有返回值，返回值通过future进行封装。FutureTask 实现了 RunnableFuture 接口，该接口继承自 Runnable 和 Future 接口，这使得 FutureTask既可以当做一个任务执行，也可以有返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public class FutureTask&lt;V&gt; implements RunnableFuture&lt;V&gt;</span><br><span class="line">public interface RunnableFuture&lt;V&gt; extends Runnable, Future&lt;V&gt;</span><br></pre></td></tr></table></figure></p>
 <p>FutureTask 可用于异步获取执行结果或者取消执行任务的场景。当一个计算任务需要执行很长时间，那么就可以用 FutureTask 来封装这个任务，主线程在完成自己的任务之后再去获取结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public class FutureTaskExample &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws ExecutionException, InterruptedException &#123;</span><br><span class="line">        FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;Integer&gt;(new Callable&lt;Integer&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public Integer call() throws Exception &#123;</span><br><span class="line">                int result = 0;</span><br><span class="line">                for (int i = 0; i &lt; 100; i++) &#123;</span><br><span class="line">                    Thread.sleep(10);</span><br><span class="line">                    result += i;</span><br><span class="line">                &#125;</span><br><span class="line">                return result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        Thread computeThread = new Thread(futureTask);</span><br><span class="line">        computeThread.start();</span><br><span class="line"></span><br><span class="line">        Thread otherThread = new Thread(() -&gt; &#123;</span><br><span class="line">            System.out.println(&quot;other task is running...&quot;);</span><br><span class="line">            try &#123;</span><br><span class="line">                Thread.sleep(1000);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        otherThread.start();</span><br><span class="line">        System.out.println(futureTask.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">other task is running...</span><br><span class="line">4950</span><br></pre></td></tr></table></figure></p>
@@ -604,15 +659,15 @@
 <h2 id="ForkJoin"><a href="#ForkJoin" class="headerlink" title="ForkJoin"></a>ForkJoin</h2><p>主要用于并行计算中，和 MapReduce 原理类似，都是把大的计算任务拆分成多个小任务并行计算。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public class ForkJoinExample extends RecursiveTask&lt;Integer&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private final int threshold = 5;</span><br><span class="line">    private int first;</span><br><span class="line">    private int last;</span><br><span class="line"></span><br><span class="line">    public ForkJoinExample(int first, int last) &#123;</span><br><span class="line">        this.first = first;</span><br><span class="line">        this.last = last;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected Integer compute() &#123;</span><br><span class="line">        int result = 0;</span><br><span class="line">        if (last - first &lt;= threshold) &#123;</span><br><span class="line">            // 任务足够小则直接计算</span><br><span class="line">            for (int i = first; i &lt;= last; i++) &#123;</span><br><span class="line">                result += i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // 拆分成小任务</span><br><span class="line">            int middle = first + (last - first) / 2;</span><br><span class="line">            ForkJoinExample leftTask = new ForkJoinExample(first, middle);</span><br><span class="line">            ForkJoinExample rightTask = new ForkJoinExample(middle + 1, last);</span><br><span class="line">            leftTask.fork();</span><br><span class="line">            rightTask.fork();</span><br><span class="line">            result = leftTask.join() + rightTask.join();</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) throws ExecutionException, InterruptedException &#123;</span><br><span class="line">    ForkJoinExample example = new ForkJoinExample(1, 10000);</span><br><span class="line">    ForkJoinPool forkJoinPool = new ForkJoinPool();</span><br><span class="line">    Future result = forkJoinPool.submit(example);</span><br><span class="line">    System.out.println(result.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>ForkJoin 使用 ForkJoinPool 来启动，它是一个特殊的线程池，线程数量取决于 CPU 核数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class ForkJoinPool extends AbstractExecutorService</span><br></pre></td></tr></table></figure></p>
 <p>ForkJoinPool 实现了工作窃取算法来提高 CPU 的利用率。每个线程都维护了一个双端队列，用来存储需要执行的任务。工作窃取算法允许空闲的线程从其它线程的双端队列中窃取一个任务来执行。窃取的任务必须是最晚的任务，避免和队列所属线程发生竞争。例如下图中，Thread2 从 Thread1 的队列中拿出最晚的 Task1 任务，Thread1 会拿出 Task2 来执行，这样就避免发生竞争。但是如果队列中只有一个任务时还是会发生竞争。</p>
-<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz45rdaglwj20l40cy0to.jpg" alt=""></p>
+<p><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz45rdaglwj20l40cy0to.jpg" data-index="5" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz45rdaglwj20l40cy0to.jpg"></p>
 <h1 id="线程不安全示例"><a href="#线程不安全示例" class="headerlink" title="线程不安全示例"></a>线程不安全示例</h1><p> 如果多个线程对同一个共享数据进行访问而不采取同步操作的话，那么操作的结果是不一致的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> public class ThreadUnsafeExample &#123;</span><br><span class="line"></span><br><span class="line">    private int cnt = 0;</span><br><span class="line"></span><br><span class="line">    public void add() &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int get() &#123;</span><br><span class="line">        return cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">    final int threadSize = 1000;</span><br><span class="line">    ThreadUnsafeExample example = new ThreadUnsafeExample();</span><br><span class="line">    final CountDownLatch countDownLatch = new CountDownLatch(threadSize);</span><br><span class="line">    ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">    for (int i = 0; i &lt; threadSize; i++) &#123;</span><br><span class="line">        executorService.execute(() -&gt; &#123;</span><br><span class="line">            example.add();</span><br><span class="line">            countDownLatch.countDown();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    countDownLatch.await();</span><br><span class="line">    executorService.shutdown();</span><br><span class="line">    System.out.println(example.get());</span><br><span class="line">&#125;</span><br><span class="line">997</span><br></pre></td></tr></table></figure>
 <h1 id="Java-内存模型"><a href="#Java-内存模型" class="headerlink" title="Java 内存模型"></a>Java 内存模型</h1><p> Java 内存模型试图屏蔽各种硬件和操作系统的内存访问差异，以实现让 Java程序在各种平台下都能达到一致的内存访问效果。</p>
 <h2 id="主内存与工作内存"><a href="#主内存与工作内存" class="headerlink" title="主内存与工作内存"></a>主内存与工作内存</h2><p>处理器上的寄存器的读写的速度比内存快几个数量级，为了解决这种速度的矛盾，在它们之间加入了高速缓存。</p>
-<p>加入高速缓存带来了一个新的问题：缓存一致性。如果多个缓存共享同一块主内存区域，那么多个缓存的数据可能会不一致，需要一些协议来解决这个问题。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f1lsyspj20pw08j0su.jpg" alt=""></p>
+<p>加入高速缓存带来了一个新的问题：缓存一致性。如果多个缓存共享同一块主内存区域，那么多个缓存的数据可能会不一致，需要一些协议来解决这个问题。<br><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f1lsyspj20pw08j0su.jpg" data-index="6" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f1lsyspj20pw08j0su.jpg"></p>
 <p>所有的变量都存储在主内存中，每个线程还有自己的工作内存，工作内存存储在高速缓存或者寄存器中，保存了该线程使用的变量的主内存副本拷贝。</p>
-<p>线程只能直接操作工作内存中的变量，不同线程之间的变量值传递需要通过主内存来完成。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f4akq2nj20n40bs0t2.jpg" alt=""></p>
-<h2 id="内存间交互操作"><a href="#内存间交互操作" class="headerlink" title="内存间交互操作"></a>内存间交互操作</h2><p>Java内存模型定义了8个操作来完成主内存和工作内存的交互操作。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f56hpm7j20k30580sn.jpg" alt=""></p>
+<p>线程只能直接操作工作内存中的变量，不同线程之间的变量值传递需要通过主内存来完成。<br><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f4akq2nj20n40bs0t2.jpg" data-index="7" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f4akq2nj20n40bs0t2.jpg"></p>
+<h2 id="内存间交互操作"><a href="#内存间交互操作" class="headerlink" title="内存间交互操作"></a>内存间交互操作</h2><p>Java内存模型定义了8个操作来完成主内存和工作内存的交互操作。<br><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f56hpm7j20k30580sn.jpg" data-index="8" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5f56hpm7j20k30580sn.jpg"></p>
 <ul>
 <li>read：把一个变量的值从主内存传输到工作内存中。</li>
 <li>load：在read之后执行，把read得到的值放入工作内存的变量副本中。</li>
@@ -627,8 +682,8 @@
 <p> int 等原子性的类型在多线程环境中不会出现线程安全问题。——&gt; 是错误的认知，前面的线程不安全示例代码中，cnt 属于 int 类型变量，1000 个线程对它进行自增操作之后，得到的值为 997 而不是 1000。</p>
 <p> 为了方便讨论，将内存间的交互操作简化为 3 个：load、assign、store。</p>
 <p> 下图演示了两个线程同时对 cnt 进行操作，load、assign、store 这一系列操作整体上看不具备原子性，那么在 T1 修改 cnt 并且还没有将修改后的值写入主内存，T2 依然可以读入旧值。可以看出，这两个线程虽然执行了两次自增运算，但是主内存中 cnt 的值最后为 1 而不是 2。因此对 int 类型读写操作满足原子性只是说明 load、assign、store 这些单个操作具备原子性。</p>
-<p> <img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5foel2q8j20df0cy0ss.jpg" alt=""></p>
-<p> <strong>Atomicinteger能保证多个线程修改的原子性。</strong><br> <img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5fraifkjj20e20i00sv.jpg" alt=""></p>
+<p> <img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5foel2q8j20df0cy0ss.jpg" data-index="9" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5foel2q8j20df0cy0ss.jpg"></p>
+<p> <strong>Atomicinteger能保证多个线程修改的原子性。</strong><br> <img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5fraifkjj20e20i00sv.jpg" data-index="10" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz5fraifkjj20e20i00sv.jpg"></p>
 <p> 使用 AtomicInteger 重写之前线程不安全的代码之后得到以下线程安全实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> public class AtomicExample &#123;</span><br><span class="line">    private AtomicInteger cnt = new AtomicInteger();</span><br><span class="line"></span><br><span class="line">    public void add() &#123;</span><br><span class="line">        cnt.incrementAndGet();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int get() &#123;</span><br><span class="line">        return cnt.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">    final int threadSize = 1000;</span><br><span class="line">    AtomicExample example = new AtomicExample(); // 只修改这条语句</span><br><span class="line">    final CountDownLatch countDownLatch = new CountDownLatch(threadSize);</span><br><span class="line">    ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">    for (int i = 0; i &lt; threadSize; i++) &#123;</span><br><span class="line">        executorService.execute(() -&gt; &#123;</span><br><span class="line">            example.add();</span><br><span class="line">            countDownLatch.countDown();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    countDownLatch.await();</span><br><span class="line">    executorService.shutdown();</span><br><span class="line">    System.out.println(example.get());</span><br><span class="line">&#125;</span><br><span class="line">1000</span><br></pre></td></tr></table></figure></p>
 <p>除了使用原子类之外，也可以使用 synchronized 互斥锁来保证操作的原子性。它对应的内存间交互操作为：lock 和 unlock，在虚拟机实现上对应的字节码指令为 monitorenter 和 monitorexit。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class AtomicSynchronizedExample &#123;</span><br><span class="line">    private int cnt = 0;</span><br><span class="line"></span><br><span class="line">    public synchronized void add() &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public synchronized int get() &#123;</span><br><span class="line">        return cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">    final int threadSize = 1000;</span><br><span class="line">    AtomicSynchronizedExample example = new AtomicSynchronizedExample();</span><br><span class="line">    final CountDownLatch countDownLatch = new CountDownLatch(threadSize);</span><br><span class="line">    ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">    for (int i = 0; i &lt; threadSize; i++) &#123;</span><br><span class="line">        executorService.execute(() -&gt; &#123;</span><br><span class="line">            example.add();</span><br><span class="line">            countDownLatch.countDown();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    countDownLatch.await();</span><br><span class="line">    executorService.shutdown();</span><br><span class="line">    System.out.println(example.get());</span><br><span class="line">&#125;</span><br><span class="line">1000</span><br></pre></td></tr></table></figure></p>
 <h3 id="2-可见性"><a href="#2-可见性" class="headerlink" title="2.可见性"></a>2.可见性</h3><p>可见性指当一个线程修改了共享变量的值，其它线程能够立即得知这个修改。Java 内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值来实现可见性的。</p>
@@ -646,27 +701,27 @@
 <h3 id="1、单一线程原则"><a href="#1、单一线程原则" class="headerlink" title="1、单一线程原则"></a>1、单一线程原则</h3><blockquote>
 <p>Single Thread rule</p>
 </blockquote>
-<p>在一个线程内，在程序前面的操作先行发生于后面的操作。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9lehkzaej20990830sw.jpg" alt=""></p>
+<p>在一个线程内，在程序前面的操作先行发生于后面的操作。<br><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9lehkzaej20990830sw.jpg" data-index="11" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9lehkzaej20990830sw.jpg"></p>
 <h3 id="2、管程锁定规则"><a href="#2、管程锁定规则" class="headerlink" title="2、管程锁定规则"></a>2、管程锁定规则</h3><blockquote>
 <p>Monitor Lock Rule</p>
 </blockquote>
 <p>一个unlock 操作先行发生于后面对同一个锁的lock操作。</p>
-<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9log0fynj20hc09v0t5.jpg" alt=""></p>
+<p><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9log0fynj20hc09v0t5.jpg" data-index="12" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9log0fynj20hc09v0t5.jpg"></p>
 <h3 id="3、volatile变量规则"><a href="#3、volatile变量规则" class="headerlink" title="3、volatile变量规则"></a>3、volatile变量规则</h3><blockquote>
 <p>Volatile Variable Rule</p>
 </blockquote>
 <p>对于一个volatile变量的写操作先行发生于后面对这个变量的读操作。</p>
-<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9lwdisswj20kb0aa0ta.jpg" alt=""></p>
+<p><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9lwdisswj20kb0aa0ta.jpg" data-index="13" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9lwdisswj20kb0aa0ta.jpg"></p>
 <h3 id="4、线程启动规则"><a href="#4、线程启动规则" class="headerlink" title="4、线程启动规则"></a>4、线程启动规则</h3><blockquote>
 <p>Thread Start Rule</p>
 </blockquote>
 <p>Thread 对象的start()方法调用先行发生于此线程的每一个动作。</p>
-<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9mfncm5vj20gw0910t3.jpg" alt=""></p>
+<p><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9mfncm5vj20gw0910t3.jpg" data-index="14" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9mfncm5vj20gw0910t3.jpg"></p>
 <h3 id="5、线程加入规则"><a href="#5、线程加入规则" class="headerlink" title="5、线程加入规则"></a>5、线程加入规则</h3><blockquote>
 <p>Thread Join Rule</p>
 </blockquote>
 <p>Thread 对象的结束先行发生于join()方法返回。</p>
-<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9mgq3h0zj20h708m0t4.jpg" alt=""></p>
+<p><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9mgq3h0zj20h708m0t4.jpg" data-index="15" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9mgq3h0zj20h708m0t4.jpg"></p>
 <h3 id="6、线程中断规则"><a href="#6、线程中断规则" class="headerlink" title="6、线程中断规则"></a>6、线程中断规则</h3><blockquote>
 <p>Thread Interruption Rule</p>
 </blockquote>
@@ -712,7 +767,7 @@
 <p>可以使用 java.lang.ThreadLocal 类来实现线程本地存储功能。</p>
 <p>对于以下代码，thread1 中设置 threadLocal 为 1，而 thread2 设置 threadLocal 为 2。过了一段时间之后，thread1 读取 threadLocal 依然是 1，不受 thread2 的影响。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadLocalExample &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ThreadLocal threadLocal = new ThreadLocal();</span><br><span class="line">        Thread thread1 = new Thread(() -&gt; &#123;</span><br><span class="line">            threadLocal.set(1);</span><br><span class="line">            try &#123;</span><br><span class="line">                Thread.sleep(1000);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(threadLocal.get());</span><br><span class="line">            threadLocal.remove();</span><br><span class="line">        &#125;);</span><br><span class="line">        Thread thread2 = new Thread(() -&gt; &#123;</span><br><span class="line">            threadLocal.set(2);</span><br><span class="line">            threadLocal.remove();</span><br><span class="line">        &#125;);</span><br><span class="line">        thread1.start();</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
 <p>为了理解ThreadLocal，先看以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadLocalExample1 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ThreadLocal threadLocal1 = new ThreadLocal();</span><br><span class="line">        ThreadLocal threadLocal2 = new ThreadLocal();</span><br><span class="line">        Thread thread1 = new Thread(() -&gt; &#123;</span><br><span class="line">            threadLocal1.set(1);</span><br><span class="line">            threadLocal2.set(1);</span><br><span class="line">        &#125;);</span><br><span class="line">        Thread thread2 = new Thread(() -&gt; &#123;</span><br><span class="line">            threadLocal1.set(2);</span><br><span class="line">            threadLocal2.set(2);</span><br><span class="line">        &#125;);</span><br><span class="line">        thread1.start();</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>它所对应的底层结构图为：<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9o2fs2cpj20mb0bw0sq.jpg" alt=""></p>
+<p>它所对应的底层结构图为：<br><img alt class="post-img b-lazy" data-img="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9o2fs2cpj20mb0bw0sq.jpg" data-index="16" data-src="http://ww1.sinaimg.cn/large/bfd348c6gy1fz9o2fs2cpj20mb0bw0sq.jpg"></p>
 <p>每个Thread 都有一个 ThreadLocal.ThreadLocalMap 对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/* ThreadLocal values pertaining to this thread. This map is maintained</span><br><span class="line"> * by the ThreadLocal class. */</span><br><span class="line">ThreadLocal.ThreadLocalMap threadLocals = null;</span><br></pre></td></tr></table></figure></p>
 <p>当调用一个 ThreadLocal 的set(T Value)方法时，先得到当前线程的ThreadLocalMap对象，然后将ThreadLocal-&gt;value 键值对插入到该Map中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public void set(T value) &#123;</span><br><span class="line">    Thread t = Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map = getMap(t);</span><br><span class="line">    if (map != null)</span><br><span class="line">        map.set(this, value);</span><br><span class="line">    else</span><br><span class="line">        createMap(t, value);</span><br><span class="line">&#125;</span><br><span class="line">get() 方法类似。</span><br><span class="line"></span><br><span class="line">public T get() &#123;</span><br><span class="line">    Thread t = Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map = getMap(t);</span><br><span class="line">    if (map != null) &#123;</span><br><span class="line">        ThreadLocalMap.Entry e = map.getEntry(this);</span><br><span class="line">        if (e != null) &#123;</span><br><span class="line">            @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">            T result = (T)e.value;</span><br><span class="line">            return result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return setInitialValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>ThreadLocal 从理论上讲并不是用来解决多线程并发问题的，因为根本不存在多线程竞争。</p>
@@ -843,9 +898,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/bz.gif"
-                alt="Caiiiiii" />
+              <img class="site-author-image post-img b-lazy" itemprop="image" alt="Caiiiiii" data-img="/images/bz.gif" data-index="17" data-src="/images/bz.gif">
             
               <p class="site-author-name" itemprop="name">Caiiiiii</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -1142,124 +1195,323 @@
 </body>
 </html>
 
-      
+                </article>
+                <ul class="tags-postTags">
+                    
+                </ul>
+            </div>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/18/Java%E5%B9%B6%E5%8F%91/" data-id="ck1vr002a000k2oth7qxz24yb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/10/18/Java%E5%AE%B9%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Java容器
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/10/18/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Java虚拟机</div>
-    </a>
-  
-</nav>
 
-  
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="Java虚拟机" href="/2019/10/18/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+            ← Java虚拟机
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="Java常见面试题" href="/2019/10/18/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">
+            Java常见面试题 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#posts"><span class="toc-text">Java并发</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程状态转换"><span class="toc-text">线程状态转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建（New）"><span class="toc-text">新建（New）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可运行（Runnable）"><span class="toc-text">可运行（Runnable）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阻塞（Blocking）"><span class="toc-text">阻塞（Blocking）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无期限等待（Waiting）"><span class="toc-text">无期限等待（Waiting）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#限期等待（Timed-Waiting）"><span class="toc-text">限期等待（Timed Waiting）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#死亡（Terminated）"><span class="toc-text">死亡（Terminated）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用线程"><span class="toc-text">使用线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现-RUnnable-接口"><span class="toc-text">实现 RUnnable 接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现-Callable-接口"><span class="toc-text">实现 Callable 接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承-Thread-类"><span class="toc-text">继承 Thread 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现接口-VS-继承-Thread"><span class="toc-text">实现接口 VS 继承 Thread</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础线程机制"><span class="toc-text">基础线程机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Executor"><span class="toc-text">Executor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Daemon"><span class="toc-text">Daemon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sleep"><span class="toc-text">Sleep()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yield"><span class="toc-text">yield()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#中断"><span class="toc-text">中断</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#InterruptedException"><span class="toc-text">InterruptedException</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#interrupted"><span class="toc-text">interrupted()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Executor的中断操作"><span class="toc-text">Executor的中断操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#互斥同步"><span class="toc-text">互斥同步</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比较"><span class="toc-text">比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用选择"><span class="toc-text">使用选择</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程之间的协作"><span class="toc-text">线程之间的协作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#join"><span class="toc-text">join()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wait-notify-notifyAll"><span class="toc-text">wait() notify() notifyAll()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wait-和-sleep-的区别"><span class="toc-text">wait() 和 sleep() 的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#await-signal-signalAll"><span class="toc-text">await()  signal()  signalAll()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#J-U-C-AQS"><span class="toc-text">J.U.C - AQS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CountdownLatch"><span class="toc-text">CountdownLatch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CyclicBarrier"><span class="toc-text">CyclicBarrier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Semaphore"><span class="toc-text">Semaphore</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#J-U-C-其它组件"><span class="toc-text">J.U.C - 其它组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FutureTask"><span class="toc-text">FutureTask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BlockingQueue"><span class="toc-text">BlockingQueue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ForkJoin"><span class="toc-text">ForkJoin</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程不安全示例"><span class="toc-text">线程不安全示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-内存模型"><span class="toc-text">Java 内存模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主内存与工作内存"><span class="toc-text">主内存与工作内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存间交互操作"><span class="toc-text">内存间交互操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存模型三大特性"><span class="toc-text">内存模型三大特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-原子性"><span class="toc-text">1.原子性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-可见性"><span class="toc-text">2.可见性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-有序性"><span class="toc-text">3.有序性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先行发生原则"><span class="toc-text">先行发生原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、单一线程原则"><span class="toc-text">1、单一线程原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、管程锁定规则"><span class="toc-text">2、管程锁定规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、volatile变量规则"><span class="toc-text">3、volatile变量规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、线程启动规则"><span class="toc-text">4、线程启动规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、线程加入规则"><span class="toc-text">5、线程加入规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、线程中断规则"><span class="toc-text">6、线程中断规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、对象终结规则"><span class="toc-text">7、对象终结规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、传递性"><span class="toc-text">8、传递性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程安全"><span class="toc-text">线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不可变"><span class="toc-text">不可变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#互斥同步-1"><span class="toc-text">互斥同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非阻塞同步"><span class="toc-text">非阻塞同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、CAS"><span class="toc-text">1、CAS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、AtomicInteger"><span class="toc-text">2、AtomicInteger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、ABA"><span class="toc-text">3、ABA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无同步方案"><span class="toc-text">无同步方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、栈封闭"><span class="toc-text">1、栈封闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、线程本地存储-Thread-Local-Storage"><span class="toc-text">2、线程本地存储(Thread Local Storage)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、可重入代码-Reentrant-Code"><span class="toc-text">3、可重入代码(Reentrant Code)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自旋锁"><span class="toc-text">自旋锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁消除"><span class="toc-text">锁消除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁粗化"><span class="toc-text">锁粗化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轻量级锁"><span class="toc-text">轻量级锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#偏向锁"><span class="toc-text">偏向锁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程开发良好的实践"><span class="toc-text">多线程开发良好的实践</span></a></li></ol>
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://i.loli.net/2017/11/26/5a19c56faa29f.jpg)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Hexo &mdash;</small>
+    <h3 class="read-next-card-header-title">Recent Posts</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2019/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2019/10/18/%E7%94%A8HEXO%E5%92%8CMARKDOWN%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99%E5%8D%9A%E5%AE%A2/">用HEXO和MARKDOWN格式书写博客</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">数据库系统原理</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+            
+            
+            
 
-  
-    
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+            
+            
+            
+
+            
+        </div>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/10/18/test-my-site/">test_my_site</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/18/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/18/JQUERY%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">JQUERY的基本使用方法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/18/%E7%94%A8HEXO%E5%92%8CMARKDOWN%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99%E5%8D%9A%E5%AE%A2/">用HEXO和MARKDOWN格式书写博客</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/18/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">Java常见面试题</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
 </aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
         
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        <div class="search-overlay-logo">
+        	<img src="https://i.loli.net/2017/11/26/5a19c0b50432e.png" alt="Hexo">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="Search ...">
+        <a class="search-overlay-close" href="#"></a>
     </div>
-  </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Hexo">Hexo &copy; 2019</a>
+			
+				
+			        <span hidden="true" id="/2019/10/18/Java%E5%B9%B6%E5%8F%91/" class="leancloud-visitors" data-flag-title="Java并发">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
 
 
-<script src="/js/script.js"></script>
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
 
 
 
-  </div>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: '',
+            appKey: '',
+            placeholder: 'Just go go',
+            pageSize: 10,
+            avatar: 'mm',
+            visitor: true
+        })
+    });
+</script>
+
+
+
+
+
 </body>
 </html>
