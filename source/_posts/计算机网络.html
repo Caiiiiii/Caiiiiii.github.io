@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Abc, A" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络常考面试题">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/计算机网络/index.html">
+<meta property="og:site_name" content="Caiiiiii&#39;s blog">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6ly1fy0ifyjox3j20yw0lqh8q.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvv9bi7u1j20aa04rwet.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvvg24b0ej20cc073dgu.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvvge5xhjj20g706nwez.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxv16bqdl7j20ob0r4amr.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6ly1fxv5s0gx3vj20tb0d67b6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvncmrzquj21h60kyjwa.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvnhafyonj20wm0i077k.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxxfi728xij20lg0a9q3u.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxxfp48cz5j20ln0axwfh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxxh6hwmb7j20i00fk75m.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyhd91uq2j20ki036glz.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyi1xq953j20la03d74x.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyi1lcs47j20la03f0te.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyiaz6s3aj20ki07bq3z.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyiv251uqj20f20d80u3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxz6rm0up4j20b007e75i.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fxz77ruj6nj20i604egnb.jpg">
+<meta property="og:updated_time" content="2018-12-28T03:56:35.495Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络常考面试题">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/bfd348c6ly1fy0ifyjox3j20yw0lqh8q.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"Left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/09/计算机网络/"/>
+
+
+
+
+
+  <title>计算机网络常考面试题 | Caiiiiii's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-Left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Caiiiiii's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">来局昆特牌吗？</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/计算机网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caiiiiii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/bz.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caiiiiii's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络常考面试题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-09T15:04:03+08:00">
+                2018-12-09
+              </time>
+              </span>
+              
+  <span class="post-updated">
+    &nbsp; | &nbsp; 更新于
+    <time itemprop="dateUpdated" datetime="2018-12-28T11:56:35+08:00" content="2018-12-28">
+      2018-12-28
+    </time>
+  </span>
+
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww1.sinaimg.cn/large/bfd348c6ly1fy0ifyjox3j20yw0lqh8q.jpg" alt=""><br><a id="more"></a></p>
+<h1 id="OSI七层协议模型、TCP-IP四层模型和五层协议体系结构之间的关系"><a href="#OSI七层协议模型、TCP-IP四层模型和五层协议体系结构之间的关系" class="headerlink" title="OSI七层协议模型、TCP/IP四层模型和五层协议体系结构之间的关系"></a>OSI七层协议模型、TCP/IP四层模型和五层协议体系结构之间的关系</h1><h2 id="1、OSI七层模型"><a href="#1、OSI七层模型" class="headerlink" title="1、OSI七层模型"></a>1、OSI七层模型</h2><p>OSI七层协议模型主要是：应用层（Application）、表示层（Presentation）、会话层（Session）、传输层（Transport）、网络层（Network）、数据链路层（Data Link）、物理层（Physical）。</p>
+<h2 id="2、TCP-IP四层模型"><a href="#2、TCP-IP四层模型" class="headerlink" title="2、TCP/IP四层模型"></a>2、TCP/IP四层模型</h2><p>TCP/IP是一个四层的体系结构，主要包括：应用层、运输层、网际层和网络接口层。从实质上讲，只有上边三层，网络接口层没有什么具体的内容。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvv9bi7u1j20aa04rwet.jpg" alt=""></p>
+<h2 id="3、五层体系结构"><a href="#3、五层体系结构" class="headerlink" title="3、五层体系结构"></a>3、五层体系结构</h2><p>五层体系结构包括：应用层、运输层、网络层、数据链路层和物理层。<br>五层协议只是OSI和TCP/IP的综合，实际应用还是TCP/IP的四层结构。为了方便可以把下两层称为网络接口层。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvvg24b0ej20cc073dgu.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvvge5xhjj20g706nwez.jpg" alt=""></p>
+<h2 id="4、各层作用"><a href="#4、各层作用" class="headerlink" title="4、各层作用"></a>4、各层作用</h2><p>1、物理层：<br>主要定义物理设备标准，如网线的接口类型、光纤的接口类型、各种传输介质的传输速率等。它的主要作用是传输比特流（就是由1、0转化为电流强弱来进行传输,到达目的地后在转化为1、0，也就是我们常说的数模转换与模数转换）。这一层的数据叫做比特。 　　</p>
+<p>2、数据链路层：<br>定义了如何让格式化数据以进行传输（成帧），以及如何让控制对物理介质的访问。这一层通常还提供错误检测和纠正，以确保数据的可靠传输。</p>
+<p>3、网络层：<br>在位于不同地理位置的网络中的两个主机系统之间提供连接和路径选择。Internet的发展使得从世界各站点访问信息的用户数大大增加，而网络层正是管理这种连接的层。 　　</p>
+<p>4、运输层：<br>定义了一些传输数据的协议和端口号（WWW端口80等），如：<br>TCP（transmission control protocol –传输控制协议，传输效率低，可靠性强，用于传输可靠性要求高，数据量大的数据）<br>UDP（user datagram protocol–用户数据报协议，与TCP特性恰恰相反，用于传输可靠性要求不高，数据量小的数据，如QQ聊天数据就是通过这种方式传输的）。 主要是将从下层接收的数据进行分段和传输，到达目的地址后再进行重组。常常把这一层数据叫做段。 　　</p>
+<p>5、会话层：<br>通过运输层（端口号：传输端口与接收端口）建立数据传输的通路。主要在你的系统之间发起会话或者接受会话请求（设备之间需要互相认识可以是IP也可以是MAC或者是主机名） 　　</p>
+<p>6、表示层：<br>可确保一个系统的应用层所发送的信息可以被另一个系统的应用层读取。例如，PC程序与另一台计算机进行通信，其中一台计算机使用扩展二一十进制交换码（EBCDIC），而另一台则使用美国信息交换标准码（ASCII）来表示相同的字符。如有必要，表示层会通过使用一种通格式来实现多种数据格式之间的转换。 　　</p>
+<p>7、应用层：<br>是最靠近用户的OSI层。这一层为用户的应用程序（例如电子邮件、文件传输和终端仿真）提供网络服务。</p>
+<h1 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h1><p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxv16bqdl7j20ob0r4amr.jpg" alt=""></p>
+<h3 id="需要的信息："><a href="#需要的信息：" class="headerlink" title="需要的信息："></a>需要的信息：</h3><p>ACK： TCP 协议规定，只有 ACK=1 时有效，也规定连接建立后所有发送的报文的 ACK 必须为 1。</p>
+<p>SYN(SYNchronization) ： 在连接建立时用来同步序号。当 SYN=1 而 ACK=0 时，表明这是一个连接请求报文。对方若同意建立连接，则应在响应报文中使 SYN=1 和 ACK=1. 因此, SYN 置 1 就表示这是一个连接请求或连接接受报文。</p>
+<p>FIN （finish）即完，终结的意思， 用来释放一个连接。当 FIN = 1 时，表明此报文段的发送方的数据已经发送完毕，并要求释放连接。</p>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><ul>
+<li>第一次握手：建立连接。客户端发送请求报文段，SYN设置为 1，SYN seq = x，客户端进入 SYN_SEND 状态，等待服务器确认。</li>
+<li>第二次握手：服务器收到SYN报文段，对报文段进行确认。并将SYN设置为 1，同时将ACK设为x+1 ，SYN seq = y，将所有信息放在一个报文段发送给客户端。</li>
+<li>第三次握手：客户端收到服务端的SYN+ACK报文段，然后将ACK设置为y+1，向服务端发送ACK报文段。进入ESTABLISHED状态，完成TCP三次握手。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">为什么不是二次握手而是三次握手呢？</span><br><span class="line">ans：为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误</span><br></pre></td></tr></table></figure>
+<h2 id="四次挥手-四次分手"><a href="#四次挥手-四次分手" class="headerlink" title="四次挥手/四次分手"></a>四次挥手/四次分手</h2><ul>
+<li>第一次挥手：主机A 设置seq和ack，向主机B发送FIN报文段，主机A进入FIN_WAIT状态，表示没有数据要发送给主机B了。</li>
+<li>第二次挥手：主机B收到主机A的FIN报文段，想主机A回一个ACK报文段，ACK为seq + 1，主机B”告诉”主机A，同意你的关闭请求。</li>
+<li>第三次挥手：主机B向主机A发送FIN报文段，请求关闭连接，主机B进入LAST_ACK状态。</li>
+<li>第四次挥手：主机A收到主机B的FIN报文段，向主机B发送ACK报文段，主机B收到主机A的报文段后关闭连接。此时，主机A等待2MSL（报文最大生存时间）后没有收到回复，则主机A关闭连接。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">为什么不是三次挥手而是四次挥手？</span><br><span class="line">ans：在第二次挥手结束后，表示主机A没有数据要发送给主机B，但主机B可以发送给主机A，当主机B也发送FIN报文段时，表示主机B也没有数据要发送了。彼此断开连接。</span><br></pre></td></tr></table></figure>
+<h1 id="TCP-滑动窗口（避免拥塞的发生）"><a href="#TCP-滑动窗口（避免拥塞的发生）" class="headerlink" title="TCP 滑动窗口（避免拥塞的发生）"></a>TCP 滑动窗口（避免拥塞的发生）</h1><p>窗口是缓存的一部分，用来暂时存放字节流。发送方和接收方各有一个窗口，接收方通过 TCP 报文段中的窗口字段告诉发送方自己的窗口大小，发送方根据这个值和其它信息设置自己的窗口大小。</p>
+<p>发送窗口内的字节都允许被发送，接收窗口内的字节都允许被接收。如果发送窗口左部的字节已经发送并且收到了确认，那么就将发送窗口向右滑动一定距离，直到左部第一个字节不是已发送并且已确认的状态；接收窗口的滑动类似，接收窗口左部字节已经发送确认并交付主机，就向右滑动接收窗口。</p>
+<p><img src="http://ww1.sinaimg.cn/large/bfd348c6ly1fxv5s0gx3vj20tb0d67b6.jpg" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发送31到41字节，&#123;32,33&#125;丢失，接收到31后向右滑动一格，由于没有收到32字节的确认，重新发送32到42的字节。</span><br></pre></td></tr></table></figure></p>
+<h1 id="TCP-拥塞控制"><a href="#TCP-拥塞控制" class="headerlink" title="TCP 拥塞控制"></a>TCP 拥塞控制</h1><h3 id="TCP-主要通过四个算法（机制）来进行拥塞控制：慢开始、拥塞避免、快重传、快恢复。"><a href="#TCP-主要通过四个算法（机制）来进行拥塞控制：慢开始、拥塞避免、快重传、快恢复。" class="headerlink" title="TCP 主要通过四个算法（机制）来进行拥塞控制：慢开始、拥塞避免、快重传、快恢复。"></a>TCP 主要通过四个算法（机制）来进行拥塞控制：慢开始、拥塞避免、快重传、快恢复。</h3><p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvncmrzquj21h60kyjwa.jpg" alt=""></p>
+<h4 id="1、慢开始与拥塞避免"><a href="#1、慢开始与拥塞避免" class="headerlink" title="1、慢开始与拥塞避免"></a>1、慢开始与拥塞避免</h4><p>发送的最初执行慢开始，令 cwnd = 1，发送方只能发送 1 个报文段；当收到确认后，将 cwnd 加倍，因此之后发送方能够发送的报文段数量为：2、4、8 …</p>
+<p>注意到慢开始每个轮次都将 cwnd 加倍，这样会让 cwnd 增长速度非常快，从而使得发送方发送的速度增长速度过快，网络拥塞的可能性也就更高。设置一个慢开始门限 ssthresh，当 cwnd &gt;= ssthresh 时，进入拥塞避免，每个轮次只将 cwnd 加 1。</p>
+<p>如果出现了超时，则令 ssthresh = cwnd / 2，然后重新执行慢开始。</p>
+<h4 id="2、快重传与快恢复"><a href="#2、快重传与快恢复" class="headerlink" title="2、快重传与快恢复"></a>2、快重传与快恢复</h4><p>在接收方，要求每次接收到报文段都应该对最后一个已收到的有序报文段进行确认。例如已经接收到 M1 和 M2，此时收到 M4，应当发送对 M2 的确认。</p>
+<p>在发送方，如果收到三个重复确认，那么可以知道下一个报文段丢失，此时执行快重传，立即重传下一个报文段。例如收到三个 M2，则 M3 丢失，立即重传 M3。</p>
+<p>在这种情况下，只是丢失个别报文段，而不是网络拥塞。因此执行快恢复，令 ssthresh = cwnd / 2 ，cwnd = ssthresh，注意到此时直接进入拥塞避免。</p>
+<p>慢开始和快恢复的快慢指的是 cwnd 的设定值，而不是 cwnd 的增长速率。慢开始 cwnd 设定为 1，而快恢复 cwnd 设定为 ssthresh。</p>
+<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxvnhafyonj20wm0i077k.jpg" alt=""></p>
+<h1 id="TCP-和-UDP-的不同"><a href="#TCP-和-UDP-的不同" class="headerlink" title="TCP 和 UDP 的不同"></a>TCP 和 UDP 的不同</h1><p>TCP在传送数据之前必须先建立连接，数据传送结束后摇释放连接。<br>TCP不提供广播或者多播服务，由于TCP提供可靠的、面向连接的运输服务，因此不可避免地增加了许多的开销，如确认，流量控制，计时器及连接管理等。</p>
+<p>而UDP在传送数据之前不需要先建立连接。接收方收到UDP的报文后，也不需要给出任何确认。<br>虽然UDP不提供可靠交付，但在某些情况下UDP确实最有效的工作方式。</p>
+<p><strong>UDP：单个数据报，不用建立连接，简单，不可靠，会丢包，会乱序；</strong><br><strong>TCP：流式，需要建立连接，复杂，可靠 ，有序。</strong></p>
+<h2 id="TCP对应的协议"><a href="#TCP对应的协议" class="headerlink" title="TCP对应的协议"></a>TCP对应的协议</h2><p>（1） FTP：定义了文件传输协议，使用21端口。</p>
+<p>（2） Telnet：一种用于远程登陆的端口，使用23端口，用户可以以自己的身份远程连接到计算机上，可提供基于DOS模式下的通信服务。</p>
+<p>（3） SMTP：邮件传送协议，用于发送邮件。服务器开放的是25号端口。</p>
+<p>（4） POP3：它是和SMTP对应，POP3用于接收邮件。POP3协议所用的是110端口。</p>
+<p>（5）HTTP：是从Web服务器传输超文本到本地浏览器的传送协议。</p>
+<h2 id="UDP对应的协议"><a href="#UDP对应的协议" class="headerlink" title="UDP对应的协议"></a>UDP对应的协议</h2><p>（1） DNS：用于域名解析服务，将域名地址转换为IP地址。DNS用的是53号端口。</p>
+<p>（2） SNMP：简单网络管理协议，使用161号端口，是用来管理网络设备的。由于网络设备很多，无连接的服务就体现出其优势。</p>
+<p>（3） TFTP(Trival File Tran敏感词er Protocal)，简单文件传输协议，该协议在熟知端口69上使用UDP服务。</p>
+<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="什么是HTTP？"><a href="#什么是HTTP？" class="headerlink" title="什么是HTTP？"></a>什么是HTTP？</h2><p>超文本传输协议（HTTP）的设计目的是保证客户机与服务器之间的通信。</p>
+<p>HTTP 的工作方式是客户机与服务器之间的请求-应答协议。</p>
+<h2 id="HTTP格式"><a href="#HTTP格式" class="headerlink" title="HTTP格式"></a>HTTP格式</h2><p>HTTP使用统一资源标识符（URI）来传输数据和建立连接。URL是一种特殊种类的资源标识符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://google.com/</span><br></pre></td></tr></table></figure></p>
+<p>1.协议部分<br>该URL协议部分为http： ，表示网页用的是HTTP协议。后面//为分隔符<br>2.域名部分<br>域名是google.com，发送请求时，向DNS服务器解析IP<br>3.端口部分(非必要)<br>域名后面的和域名之间用：分隔，端口不是URL一个必须的部分，如果端口是80，可以省略不写。<br>4.虚拟目录部分(非必要)<br>从域名的第一个/开始到最后一个/为止，是虚拟目录的部分。虚拟目录也不是URL的必要部分<br>5.文件名部分(非必要)<br>如index.html，也不是必须部分<br>6.参数部分(非必要)<br>从?开始到#之间部分是参数部分，如果有多个参数，各个参数之间用&amp;作为分隔符。<br>7.锚部分(非必要)<br>从#开始到最后，都是锚部分</p>
+<h2 id="GET方法和POST方法区别"><a href="#GET方法和POST方法区别" class="headerlink" title="GET方法和POST方法区别"></a>GET方法和POST方法区别</h2><p>（1）在客户端，GET方式在通过URL提交数据，数据在URL中可以看到；POST方式，数据是放置在Request Body内提交的。因为POST的数据是不可见的，相比之下POST更安全。<br>（2）GET请求会被浏览器主动储存，而POST不会。<br>（3）GET方式提交数据最多1024个字节且参数的数据类型只接受ASCII字符，而POST没有限制。<br>（4）GET产生一个TCP数据包；POST产生两个TCP数据包。（先发头部header，返回100 continue后发送数据data）</p>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><p>服务器返回的 响应报文 中第一行为状态行，包含了状态码以及原因短语，用来告知客户端请求的结果。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:center">类别</th>
+<th style="text-align:right">原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1XX</td>
+<td style="text-align:center">Informational（信息性状态码）</td>
+<td style="text-align:right">接收的请求正在处理</td>
+</tr>
+<tr>
+<td style="text-align:left">2XX</td>
+<td style="text-align:center">Success（成功状态码）</td>
+<td style="text-align:right">请求正常处理完毕</td>
+</tr>
+<tr>
+<td style="text-align:left">3XX</td>
+<td style="text-align:center">Redirection（重定向状态码）</td>
+<td style="text-align:right">需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td style="text-align:left">4XX</td>
+<td style="text-align:center">Client Error（客户端错误状态码）</td>
+<td style="text-align:right">服务器无法处理请求</td>
+</tr>
+<tr>
+<td style="text-align:left">5XX</td>
+<td style="text-align:center">Server Error（服务器错误状态码）</td>
+<td style="text-align:right">服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1XX-信息"><a href="#1XX-信息" class="headerlink" title="1XX 信息"></a>1XX 信息</h3><ul>
+<li>100 Continue ：表明到目前为止都很正常，客户端可以继续发送请求或者忽略这个响应。</li>
+</ul>
+<h3 id="2XX-成功"><a href="#2XX-成功" class="headerlink" title="2XX 成功"></a>2XX 成功</h3><ul>
+<li>200 OK</li>
+<li>204 No Content：请求已经成功处理，但是返回的响应报文不包含实体的主体部分。一般在只需要从客户端往服务器发送信息，而不需要返回数据时使用。</li>
+<li>206 Partial Content ：表示客户端进行了范围请求，响应报文包含由 Content-Range 指定范围的实体内容。</li>
+</ul>
+<h3 id="3XX重定向"><a href="#3XX重定向" class="headerlink" title="3XX重定向"></a>3XX重定向</h3><ul>
+<li>301 Moved Permanently ：永久性重定向</li>
+<li>302 Found ：临时性重定向</li>
+<li>303 See Other ：和 302 有着相同的功能，但是 303 明确要求客户端应该采用 GET 方法获取资源。</li>
+<li>304 Not Modified ：如果请求报文首部包含一些条件，例如：If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since，如果不满足条件，则服务器会返回 304 状态码。</li>
+<li>307 Temporary Redirect ：临时重定向，与 302 的含义类似，但是 307 要求浏览器不会把重定向请求的 POST 方法改成 GET 方法。</li>
+</ul>
+<h3 id="4XXX客户端错误"><a href="#4XXX客户端错误" class="headerlink" title="4XXX客户端错误"></a>4XXX客户端错误</h3><ul>
+<li>400 Bad Request ：请求报文中存在语法错误。</li>
+<li>401 Unauthorized ：该状态码表示发送的请求需要有认证信息（BASIC 认证、DIGEST 认证）。如果之前已进行过一次请求，则表示用户认证失败。</li>
+<li>403 Forbidden ：请求被拒绝。</li>
+<li>404 Not Found</li>
+</ul>
+<h3 id="5XX服务器错误"><a href="#5XX服务器错误" class="headerlink" title="5XX服务器错误"></a>5XX服务器错误</h3><ul>
+<li>500 Internal Server Error ：服务器正在执行请求时发生错误。</li>
+<li>503 Service Unavailable ：服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</li>
+</ul>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>HTTP 协议是无状态的，主要是为了让 HTTP 协议尽可能简单，使得它能够处理大量事务。HTTP/1.1 引入 Cookie 来保存状态信息。</p>
+<p>Cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器之后向同一服务器再次发起请求时被携带上，用于告知服务端两个请求是否来自同一浏览器。由于之后每次请求都会需要携带 Cookie 数据，因此会带来额外的性能开销（尤其是在移动环境下）。</p>
+<p>Cookie 曾一度用于客户端数据的存储，因为当时并没有其它合适的存储办法而作为唯一的存储手段，但现在随着现代浏览器开始支持各种各样的存储方式，Cookie 渐渐被淘汰。新的浏览器 API 已经允许开发者直接将数据存储到本地，如使用 Web storage API（本地存储和会话存储）或 IndexedDB。</p>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>除了可以将用户信息通过 Cookie 存储在用户浏览器中，也可以利用 Session 存储在服务器端，存储在服务器端的信息更加安全。</p>
+<p>Session 可以存储在服务器上的文件、数据库或者内存中。也可以将 Session 存储在 Redis 这种内存型数据库中，效率会更高。</p>
+<p>使用 Session 维护用户登录状态的过程如下：</p>
+<ul>
+<li>用户进行登录时，用户提交包含用户名和密码的表单，放入 HTTP 请求报文中；</li>
+<li>服务器验证该用户名和密码，如果正确则把用户信息存储到 Redis 中，它在 Redis 中的 Key 称为 Session ID；</li>
+<li>服务器返回的响应报文的 Set-Cookie 首部字段包含了这个 Session ID，客户端收到响应报文之后将该 Cookie 值存入浏览器中；</li>
+<li>客户端之后对同一个服务器进行请求时会包含该 Cookie 值，服务器收到之后提取出 Session ID，从 Redis 中取出用户信息，继续之前的业务操作。</li>
+</ul>
+<p>应该注意 Session ID 的安全性问题，不能让它被恶意攻击者轻易获取，那么就不能产生一个容易被猜到的 Session ID 值。此外，还需要经常重新生成 Session ID。在对安全性要求极高的场景下，例如转账等操作，除了使用 Session 管理用户状态之外，还需要对用户进行重新验证，比如重新输入密码，或者使用短信验证码等方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Cookie 与 Session 选择</span><br><span class="line"></span><br><span class="line">1、Cookie 只能存储 ASCII 码字符串，而 Session 则可以存取任何类型的数据，因此在考虑数据复杂性时首选 Session；</span><br><span class="line">2、Cookie 存储在浏览器中，容易被恶意查看。如果非要将一些隐私数据存在 Cookie 中，可以将 Cookie 值进行加密，然后在服务器进行解密；</span><br><span class="line">3、对于大型网站，如果用户所有的信息都存储在 Session 中，那么开销是非常大的，因此不建议将所有的用户信息都存储到 Session 中。</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP缓存"><a href="#HTTP缓存" class="headerlink" title="HTTP缓存"></a>HTTP缓存</h2><h3 id="缓存过程"><a href="#缓存过程" class="headerlink" title="缓存过程"></a>缓存过程</h3><p>当一个用户发起一个静态资源请求的时候,浏览器会通过以下几步来获取资源<br>当第一次发送请求，http返回200的状态码，</p>
+<p>如果没有关闭缓存请求的话（没标明不使用缓存，下述）则会在返回头中返回包含last-Modified以及Etag和Expires的字段（这些字段下面慢慢说），然后将文件保存在Cache目录下；</p>
+<p>当后续请求该文件时候，先在本地查找该资源,如果在本地缓存找到对应的资源,但是不知道该资源是否过期或者已经过期, 则发一个http请求到服务器,然后服务器判断这个请求,</p>
+<p>如果请求的资源在服务器上没有改动过,则返回304, 让浏览器使用本地找到的那个资源</p>
+<p>而如果当服务器发现请求的资源已经修改过,或者这是一个新的请求(本地无对应资源),服务器则返回该资源的数据,并且返回200,</p>
+<p>当然这个是指找到资源的情况下,如果服务器上没有这个资源,则返回404。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>缓解服务器压力；</li>
+<li>降低客户端获取资源的延迟：缓存通常位于内存中，读取缓存的速度更快。并且缓存在地理位置上也有可能比源服务器来得近，例如浏览器缓存。</li>
+</ul>
+<h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><p>HTTP/1.1 通过 Cache-Control 首部字段来控制缓存。</p>
+<h3 id="缓存指令"><a href="#缓存指令" class="headerlink" title="缓存指令"></a>缓存指令</h3><ul>
+<li>禁止缓存 Cache-Control：no-store</li>
+<li>强制缓存 Cache-Control：no-cache</li>
+<li>私有缓存 Cache-Control：private<br>（private 指令规定了将资源作为私有缓存，只能被单独用户所使用，一般存储在用户浏览器中。）</li>
+<li>公共缓存 Cache-Control：public<br>（public 指令规定了将资源作为公共缓存，可以被多个用户所使用，一般存储在代理服务器中。）</li>
+</ul>
+<h3 id="缓存过期机制"><a href="#缓存过期机制" class="headerlink" title="缓存过期机制"></a>缓存过期机制</h3><p>max-age 指令出现在请求报文中，并且缓存资源的缓存时间小于该指令指定的时间，那么就能接受该缓存。</p>
+<p>max-age 指令出现在响应报文中，表示缓存资源在缓存服务器中保存的时间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: max-age=31536000</span><br></pre></td></tr></table></figure></p>
+<p>Expires 首部字段也可以用于告知缓存服务器该资源什么时候会过期。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expires: Wed, 04 Jul 2012 08:26:05 GMT</span><br></pre></td></tr></table></figure></p>
+<p><strong>在 HTTP/1.1 中，会优先处理 max-age 指令；</strong></p>
+<h3 id="缓存验证"><a href="#缓存验证" class="headerlink" title="缓存验证"></a>缓存验证</h3><p>需要先了解 ETag 首部字段的含义，它是资源的唯一标识。URL 不能唯一表示资源，例如 <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a> 有中文和英文两个资源，只有 ETag 才能对这两个资源进行唯一标识。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ETag: &quot;82e22293907ce725faf67773957acd12&quot;</span><br></pre></td></tr></table></figure></p>
+<p>可以将缓存资源的 ETag 值放入 If-None-Match 首部，服务器收到该请求后，判断缓存资源的 ETag 值和资源的最新 ETag 值是否一致，如果一致则表示缓存资源有效，返回 304 Not Modified。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">If-None-Match: &quot;82e22293907ce725faf67773957acd12&quot;</span><br></pre></td></tr></table></figure></p>
+<p>last-modified : 表示文件最后修改时间；</p>
+<h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><p> HTTP有以下安全问题：</p>
+<ul>
+<li>使用明文进行通信，内容可能会被窃听</li>
+<li>不验证通信方的身份，通信方的身份有可能遭遇伪装</li>
+<li>无法证明报文的完整性，报文有可能遭篡改</li>
+</ul>
+<p>HTTPs 并不是新协议，而是让 HTTP 先和 SSL（Secure Sockets Layer 安全套接层）通信，再由 SSL 和 TCP 通信，也就是说 HTTPs 使用了隧道进行通信。</p>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><h2 id="加密方法"><a href="#加密方法" class="headerlink" title="加密方法"></a>加密方法</h2><p>1.对称密钥加密，加密和解密使用同一密钥。</p>
+<ul>
+<li>优点：运算速度快。</li>
+<li>缺点：无法安全的将密钥传输给通信方。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxxfi728xij20lg0a9q3u.jpg" alt=""></li>
+</ul>
+<p>2.非对称密钥加密<br>非对称密钥加密，又称公开密钥加密（Public-Key Encryption），加密和解密使用不同的密钥。</p>
+<p>公开密钥所有人都可以获得，通信发送方获得接收方的公开密钥之后，就可以使用公开密钥进行加密，接收方收到通信内容后使用私有密钥解密。</p>
+<p>非对称密钥除了用来加密，还可以用来进行签名。因为私有密钥无法被其他人获取，因此通信发送方使用其私有密钥进行签名，通信接收方使用发送方的公开密钥对签名进行解密，就能判断这个签名是否正确。</p>
+<ul>
+<li>优点：可以更安全的将公开密钥传输给通信发送方</li>
+<li>缺点：运算速度慢<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxxfp48cz5j20ln0axwfh.jpg" alt=""></li>
+</ul>
+<h2 id="HTTPs采用的加密方式"><a href="#HTTPs采用的加密方式" class="headerlink" title="HTTPs采用的加密方式"></a>HTTPs采用的加密方式</h2><p>HTTPs采用混合的加密机制，使用非对称密钥加密用于传输对称密钥来保证传输过程的安全性，之后使用对称密钥加密进行通信来保证通信过程的效率。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxxh6hwmb7j20i00fk75m.jpg" alt=""></p>
+<p>① 向<a href="https://www.domain.com/发起请求" target="_blank" rel="noopener">https://www.domain.com/发起请求</a><br>② 服务器端有证书公钥和证书私钥<br>③ 回复客户端一个证书公钥<br>④ 验证是否正确，如果正确，产生一个随机的key，用证书公钥加密该key<br>⑤ 将加密过后的key发送给服务器端<br>⑥ 服务器端用证书私钥解密后，将要发送的数据用key加密<br>⑦ 将用key加密后的数据发送给客户端<br>⑧ 客户端用key对加密的数据进行解密</p>
+<h1 id="当你输入域名访问一个网站的时候，背后的过程"><a href="#当你输入域名访问一个网站的时候，背后的过程" class="headerlink" title="当你输入域名访问一个网站的时候，背后的过程"></a>当你输入域名访问一个网站的时候，背后的过程</h1><h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>当你在浏览器输入网址（google.com），并敲了回车，浏览器首先做的事是获取google.com的IP地址，发送一个UDP的包给DNS服务器，DNS会返回google.com的IP，这时候浏览器通常会把IP地址缓存下来。<br>有了服务器IP，得知本机IP，操作系统随机分配一个本机端口，和服务器默认端口80。TCP三次握手建立连接，发送HTTP请求。</p>
+<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyhd91uq2j20ki036glz.jpg" alt=""></p>
+<h2 id="WEB服务器"><a href="#WEB服务器" class="headerlink" title="WEB服务器"></a>WEB服务器</h2><p>HTTP GET请求经多个路由器转发，到达服务器端。<br>经过反向代理服务器转发给后端Tomcat。（复用I/O方式）<br>（并且把Tomcat输出的HttpResponse再转发给浏览器）<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyi1xq953j20la03d74x.jpg" alt=""></p>
+<h2 id="应用服务器"><a href="#应用服务器" class="headerlink" title="应用服务器"></a>应用服务器</h2><p>Http Request来到 Tomcat，这是由Java编写的，可以处理Servlet和Jsp的容器，我们的代码运行在这个容器中。<br>如同Web服务器一样，Tomcat也可能为每个请求分配一个线程去处理（Blcoking I/O模式）</p>
+<p>Http Request被某个Servlet处理，Servlet把Http Request转化为框架使用的参数格式，分发给某个COntroller。（如果是用Spring）<br>执行Controller的代码，返回HTTP Response。</p>
+<h2 id="归途"><a href="#归途" class="headerlink" title="归途"></a>归途</h2><p>Tomcat将Http Response 发给 代理服务器，代理服务器将之发给浏览器。<br>这个HTTP Response应该是一个HTML页面。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyi1lcs47j20la03f0te.jpg" alt=""></p>
+<p><strong>如果使用的HTTP1.1，这个连接默认是keep-alive，不能关闭的</strong></p>
+<h2 id="浏览器再次工作"><a href="#浏览器再次工作" class="headerlink" title="浏览器再次工作"></a>浏览器再次工作</h2><p>浏览器收到Http Response，从中读取HTML页面，开始准备显示这个页面。<br>但这个页面引用大量其他资源，例如js文件，CSS文件，图片等，这些资源也位于服务器，且可能在另外一个域名下。<br>这是只能一个个下载，从DNS获取IP开始，与之前相比，不同之处在于没有应用服务器如Tomcat的介入。<br><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyiaz6s3aj20ki07bq3z.jpg" alt=""></p>
+<p>服务器给浏览器发送js，CSS等文件时，会告知浏览器这些文件说明时候过期，浏览器会将文件缓存在本地，如不过期，下次请求直接从本地取。如果过期了，浏览器询问服务器端，文件是否修改过，如果没修改（304 Not Modified），还可以使用，否则服务器会发送最新的文件给浏览器。</p>
+<p>浏览器根据HTML，JS，CSS进行布局绘制，生成我们在浏览器看到的内容。</p>
+<h1 id="什么是Socket？"><a href="#什么是Socket？" class="headerlink" title="什么是Socket？"></a>什么是Socket？</h1><ul>
+<li><p>解释一<br><strong>实际上socket是对TCP/IP协议的封装，它的出现只是使得程序员更方便地使用TCP/IP协议栈而已。socket本身并不是协议，它是应用层与TCP/IP协议族通信的中间软件抽象层，是一组调用接口（TCP/IP网络的API函数）</strong></p>
+</li>
+<li><p>解释二<br><strong>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。</strong></p>
+</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxyiv251uqj20f20d80u3.jpg" alt=""></p>
+<h1 id="什么是IO，什么是NIO，什么是AIO，什么是netty框架？"><a href="#什么是IO，什么是NIO，什么是AIO，什么是netty框架？" class="headerlink" title="什么是IO，什么是NIO，什么是AIO，什么是netty框架？"></a>什么是IO，什么是NIO，什么是AIO，什么是netty框架？</h1><h2 id="IO-（BIO）"><a href="#IO-（BIO）" class="headerlink" title="IO （BIO）"></a>IO （BIO）</h2><p>同步并阻塞，服务器实现模式为每一个连接建立一个线程。每个线程亲自处理并且一直等待IO的完成。<br>IO的局限：IO是面向流，阻塞式的，串行的一个过程，对每一个客户端的socket连接，IO都需要一个线程来处理，而且在此期间，这个线程一直被占用，直到Socket关闭。也就是说这期间大量的浪费了CPU的时间片和线程占用的内存资源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream是单向的，比如InputStream只能进行读取操作，OutputStream只能进行写操作。</span><br></pre></td></tr></table></figure></p>
+<h2 id="NIO-（new-IO）"><a href="#NIO-（new-IO）" class="headerlink" title="NIO （new IO）"></a>NIO （new IO）</h2><p>同步非阻塞，在NIO中有几个关键的概念：Channel（通道），Buffer（缓冲区），Selector（选择器）<br>创建一个独立的I/O线程，用于轮询多路复用器Selector。客户端发送的连接请求都会注册到多路复用器上，轮询检查IO是否准备完毕，当有Channel准备好时就处理，处理完继续循环。</p>
+<p>Channel:为读取文件提供一个通道，是双向的，即可以进行读操作，也可以进行写操作。<br>Buffer：故名思意，缓冲区，实际上是一个容器，是一个连续数组。Channel提供从文件、网络读取数据的渠道，但是读取或写入的数据都必须经由Buffer。<br>Selector（最关键一个部分）：用来轮询每个注册的Channel，一旦发现Channel有注册的事件发生，便获取事件然后进行处理。</p>
+<h3 id="Selector："><a href="#Selector：" class="headerlink" title="Selector："></a>Selector：</h3><p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxz6rm0up4j20b007e75i.jpg" alt=""></p>
+<p>　Selector类是NIO的核心类，Selector能够检测多个注册的通道上是否有事件发生，如果有事件发生，便获取事件然后针对每个事件进行相应的响应处理。这样一来，只是用一个单线程就可以管理多个通道，也就是管理多个连接。这样使得只有在连接真正有读写事件发生时，才会调用函数来进行读写，就大大地减少了系统开销，并且不必为每个连接都创建一个线程，不用去维护多个线程，并且避免了多线程之间的上下文切换导致的开销。</p>
+<h3 id="Buffer："><a href="#Buffer：" class="headerlink" title="Buffer："></a>Buffer：</h3><p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fxz77ruj6nj20i604egnb.jpg" alt=""></p>
+<p>  上面的图描述了从一个客户端向服务端发送数据，然后服务端接收数据的过程。客户端发送数据时，必须先将数据存入Buffer中，然后将Buffer中的内容写入通道。服务端这边接收数据必须通过Channel将数据读入到Buffer中，然后再从Buffer中取出数据来处理。</p>
+<h2 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h2><p>异步非阻塞<br>服务器实现模式为一个有效请求一个线程，客户端的I/O请求都是由OS先完成了再通知服务器应用去启动线程进行处理，每个线程不必亲自处理io，而是委派os来处理，并且也不需要等待io完成了，如果完成后，os会通知的。</p>
+<h2 id="Netty"><a href="#Netty" class="headerlink" title="Netty"></a>Netty</h2><p>Netty是一款异步的事件驱动的网络应用框架和工具，用于快速开发可维护的高性能、高扩展性协议服务器和客户端。也就是说，Netty是一个NIO客户端/服务器框架，支持快速、简单地开发网络应用，如协议服务器和客户端。它极大简化了网络编程，如TCP和UDP套接字服务器。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/29/Java常见面试题/" rel="next" title="Java常见面试题">
+                <i class="fa fa-chevron-left"></i> Java常见面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/12/数据库系统原理/" rel="prev" title="数据库系统原理">
+                数据库系统原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/bz.gif"
+                alt="Caiiiiii" />
+            
+              <p class="site-author-name" itemprop="name">Caiiiiii</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Caiiiiii" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:995017591@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/cai-yuan-qin/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/id/995017591" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Steam</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OSI七层协议模型、TCP-IP四层模型和五层协议体系结构之间的关系"><span class="nav-number">1.</span> <span class="nav-text">OSI七层协议模型、TCP/IP四层模型和五层协议体系结构之间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、OSI七层模型"><span class="nav-number">1.1.</span> <span class="nav-text">1、OSI七层模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、TCP-IP四层模型"><span class="nav-number">1.2.</span> <span class="nav-text">2、TCP/IP四层模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、五层体系结构"><span class="nav-number">1.3.</span> <span class="nav-text">3、五层体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、各层作用"><span class="nav-number">1.4.</span> <span class="nav-text">4、各层作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP协议"><span class="nav-number">2.</span> <span class="nav-text">TCP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要的信息："><span class="nav-number">2.0.1.</span> <span class="nav-text">需要的信息：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三次握手"><span class="nav-number">2.1.</span> <span class="nav-text">三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四次挥手-四次分手"><span class="nav-number">2.2.</span> <span class="nav-text">四次挥手/四次分手</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-滑动窗口（避免拥塞的发生）"><span class="nav-number">3.</span> <span class="nav-text">TCP 滑动窗口（避免拥塞的发生）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-拥塞控制"><span class="nav-number">4.</span> <span class="nav-text">TCP 拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-主要通过四个算法（机制）来进行拥塞控制：慢开始、拥塞避免、快重传、快恢复。"><span class="nav-number">4.0.1.</span> <span class="nav-text">TCP 主要通过四个算法（机制）来进行拥塞控制：慢开始、拥塞避免、快重传、快恢复。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、慢开始与拥塞避免"><span class="nav-number">4.0.1.1.</span> <span class="nav-text">1、慢开始与拥塞避免</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、快重传与快恢复"><span class="nav-number">4.0.1.2.</span> <span class="nav-text">2、快重传与快恢复</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-和-UDP-的不同"><span class="nav-number">5.</span> <span class="nav-text">TCP 和 UDP 的不同</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP对应的协议"><span class="nav-number">5.1.</span> <span class="nav-text">TCP对应的协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP对应的协议"><span class="nav-number">5.2.</span> <span class="nav-text">UDP对应的协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP"><span class="nav-number">6.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是HTTP？"><span class="nav-number">6.1.</span> <span class="nav-text">什么是HTTP？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP格式"><span class="nav-number">6.2.</span> <span class="nav-text">HTTP格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET方法和POST方法区别"><span class="nav-number">6.3.</span> <span class="nav-text">GET方法和POST方法区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP状态码"><span class="nav-number">6.4.</span> <span class="nav-text">HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1XX-信息"><span class="nav-number">6.4.1.</span> <span class="nav-text">1XX 信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2XX-成功"><span class="nav-number">6.4.2.</span> <span class="nav-text">2XX 成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3XX重定向"><span class="nav-number">6.4.3.</span> <span class="nav-text">3XX重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4XXX客户端错误"><span class="nav-number">6.4.4.</span> <span class="nav-text">4XXX客户端错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5XX服务器错误"><span class="nav-number">6.4.5.</span> <span class="nav-text">5XX服务器错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">6.5.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">6.6.</span> <span class="nav-text">Session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP缓存"><span class="nav-number">6.7.</span> <span class="nav-text">HTTP缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存过程"><span class="nav-number">6.7.1.</span> <span class="nav-text">缓存过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">6.7.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache-Control"><span class="nav-number">6.7.3.</span> <span class="nav-text">Cache-Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存指令"><span class="nav-number">6.7.4.</span> <span class="nav-text">缓存指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存过期机制"><span class="nav-number">6.7.5.</span> <span class="nav-text">缓存过期机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存验证"><span class="nav-number">6.7.6.</span> <span class="nav-text">缓存验证</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTPS"><span class="nav-number">7.</span> <span class="nav-text">HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#加密"><span class="nav-number">7.1.</span> <span class="nav-text">加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密方法"><span class="nav-number">7.2.</span> <span class="nav-text">加密方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPs采用的加密方式"><span class="nav-number">7.3.</span> <span class="nav-text">HTTPs采用的加密方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#当你输入域名访问一个网站的时候，背后的过程"><span class="nav-number">8.</span> <span class="nav-text">当你输入域名访问一个网站的时候，背后的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备阶段"><span class="nav-number">8.1.</span> <span class="nav-text">准备阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB服务器"><span class="nav-number">8.2.</span> <span class="nav-text">WEB服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用服务器"><span class="nav-number">8.3.</span> <span class="nav-text">应用服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归途"><span class="nav-number">8.4.</span> <span class="nav-text">归途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器再次工作"><span class="nav-number">8.5.</span> <span class="nav-text">浏览器再次工作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Socket？"><span class="nav-number">9.</span> <span class="nav-text">什么是Socket？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是IO，什么是NIO，什么是AIO，什么是netty框架？"><span class="nav-number">10.</span> <span class="nav-text">什么是IO，什么是NIO，什么是AIO，什么是netty框架？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IO-（BIO）"><span class="nav-number">10.1.</span> <span class="nav-text">IO （BIO）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NIO-（new-IO）"><span class="nav-number">10.2.</span> <span class="nav-text">NIO （new IO）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Selector："><span class="nav-number">10.2.1.</span> <span class="nav-text">Selector：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer："><span class="nav-number">10.2.2.</span> <span class="nav-text">Buffer：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AIO"><span class="nav-number">10.3.</span> <span class="nav-text">AIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Netty"><span class="nav-number">10.4.</span> <span class="nav-text">Netty</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Caiiiiii</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
