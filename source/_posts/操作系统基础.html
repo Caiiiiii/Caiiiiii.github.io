@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Abc, A" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统基础">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/操作系统基础/index.html">
+<meta property="og:site_name" content="Caiiiiii&#39;s blog">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fye8cb8asnj22fn0mutcw.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fyaqrohuoaj20qw0iw75g.jpg">
+<meta property="og:updated_time" content="2018-12-21T03:59:01.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="操作系统基础">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/bfd348c6gy1fye8cb8asnj22fn0mutcw.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"Left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/21/操作系统基础/"/>
+
+
+
+
+
+  <title>操作系统基础 | Caiiiiii's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-Left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Caiiiiii's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">来局昆特牌吗？</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/操作系统基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caiiiiii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/bz.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caiiiiii's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">操作系统基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T11:51:32+08:00">
+                2018-12-21
+              </time>
+              </span>
+              
+  <span class="post-updated">
+    &nbsp; | &nbsp; 更新于
+    <time itemprop="dateUpdated" datetime="2018-12-21T11:59:01+08:00" content="2018-12-21">
+      2018-12-21
+    </time>
+  </span>
+
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fye8cb8asnj22fn0mutcw.jpg" alt=""></p>
+<a id="more"></a>
+<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>进程：是并发执行的程序在执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位。</p>
+<p>线程：是进程的一个执行单元，是进程内科调度实体。比进程更小的独立运行的基本单位。线程也被称为轻量级进程。</p>
+<p><strong>一个程序至少一个进程，一个进程至少一个线程。</strong></p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>进程和线程的主要差别在于它们是不同的操作系统资源管理方式。进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。<br><strong>但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。</strong></p>
+<h2 id="进程间通信的方式有什么？线程间通信的方式有什么？"><a href="#进程间通信的方式有什么？线程间通信的方式有什么？" class="headerlink" title="进程间通信的方式有什么？线程间通信的方式有什么？"></a>进程间通信的方式有什么？线程间通信的方式有什么？</h2><h3 id="进程间通信的方式"><a href="#进程间通信的方式" class="headerlink" title="进程间通信的方式"></a>进程间通信的方式</h3><ul>
+<li><p>管道 ： 半双工通信方式，数据单向流动。只能在具有亲缘关系的进程间使用。进程的亲缘关系通常指父子进程关系。</p>
+</li>
+<li><p>有名管道 ： 有名管道也是半双工通信方式，但是它允许无亲缘关系进程间的通信。</p>
+</li>
+<li><p>信号量 ： 信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</p>
+</li>
+<li><p>消息队列 ： 消息队列是消息的链接表，它克服了上两种通信方式中信号量有限的缺点，具有写权限得进程可以按照一定得规则向消息队列中添加新信息；对消息队列有读权限得进程则可以从消息队列中读取信息。</p>
+</li>
+<li><p>信号 ： 信号是在软件层次上对中断机制的一种模拟，它是比较复杂的通信方式，用于通知进程有某事件发生，一个进程收到一个信号与处理器收到一个中断请求效果上可以说是一致的。</p>
+</li>
+<li><p>共享内存 ： 可以说这是最有用的进程间通信方式。它使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据得更新。这种方式需要依靠某种同步操作，如互斥锁和信号量等。</p>
+</li>
+<li><p>套接字（Socket）: 这是一种更为一般得进程间通信机制，它可用于网络中不同机器之间的进程间通信，应用非常广泛。</p>
+</li>
+</ul>
+<h3 id="线程间通信的方式"><a href="#线程间通信的方式" class="headerlink" title="线程间通信的方式"></a>线程间通信的方式</h3><p>（共享变量？）</p>
+<ul>
+<li><p>同步 ： 多个线程通过synchronized关键词这种方式来实现线程间的通信。</p>
+</li>
+<li><p>while轮询 ：但是这种方式会浪费CPU资源</p>
+</li>
+<li><p>wait/notify机制 </p>
+</li>
+<li><p>管道通信 ： 主要实现两个线程之间的二进制数据的传输</p>
+</li>
+</ul>
+<h2 id="进程同步问题"><a href="#进程同步问题" class="headerlink" title="进程同步问题"></a>进程同步问题</h2><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><h3 id="互斥与同步："><a href="#互斥与同步：" class="headerlink" title="互斥与同步："></a>互斥与同步：</h3><ul>
+<li>临界资源（临界区）：指一次只能允许一个进程使用的共享资源称为临界资源；</li>
+<li>同步：指为完成某种任务而建立的两个和多个进程，这些进程在合作的过程中需要协调工作次序进行有序的访问而出现等待所产生的制约关系。</li>
+<li>互斥：指两个或多个进程访问临界资源时只能一个进程访问，其他进程等待的一种相互制约的关系。</li>
+</ul>
+<h3 id="信号量与互斥量："><a href="#信号量与互斥量：" class="headerlink" title="信号量与互斥量："></a>信号量与互斥量：</h3><ul>
+<li>信号量：本身是一个计数器，使用P，V两个操作来实现计数的减与加，当计数不大于0时，则进程进入睡眠状态，它用于为多个进程提供共享数据对象的访问。</li>
+<li>信号量：本身是一个计数器，使用P，V两个操作来实现计数的减与加，当计数不大于0时，则进程进入睡眠状态，它用于为多个进程提供共享数据对象的访问。</li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="Thread-sleep-和-Object-wait-Object-notify-方法区别"><a href="#Thread-sleep-和-Object-wait-Object-notify-方法区别" class="headerlink" title="Thread.sleep() 和 Object.wait() , Object.notify() 方法区别"></a>Thread.sleep() 和 Object.wait() , Object.notify() 方法区别</h3><ul>
+<li>sleep()是Thread类的方法，而wait(),notify(),notifyAll()是Object类中定义的方法。都会影响线程的执行行为</li>
+<li>Thread.sleep()不会导致锁行为的改变，如果当前线程是拥有锁的，那么Thread.sleep()不会让线程释放锁。如果能够帮助你的记忆的话，可以简单认为和锁相关方法都定义在Object类中，因此调用Thread.sleep()是不会影响锁的相关行为。</li>
+<li>Thread.sleep和Object.wait都会暂停当前的线程，对于CPU资源来说，不管是哪种方式暂停的线程，都表示它暂时不在需要CPU的执行时间，OS会将执行时间分配给其他线程。区别是调用wait后，需要别的线程执行notify/notifyAll才能重新获得CPU执行时间。</li>
+</ul>
+<h3 id="线程状态图"><a href="#线程状态图" class="headerlink" title="线程状态图"></a>线程状态图</h3><p><img src="http://ww1.sinaimg.cn/large/bfd348c6gy1fyaqrohuoaj20qw0iw75g.jpg" alt=""></p>
+<h2 id="实现生产者消费者模型"><a href="#实现生产者消费者模型" class="headerlink" title="实现生产者消费者模型"></a>实现生产者消费者模型</h2><p>生产者和消费者在同一时间段内共用同一存储空间，生产者向空间里生产数据，而消费者取走数据。</p>
+<p>在Java中有四种方法支持</p>
+<ul>
+<li>Object的wait()/notify()方法</li>
+<li>Lock和Condition的await() / signal()方法 </li>
+<li>BlockingQueue阻塞队列方法 </li>
+<li>PipedInputStream / PipedOutputStream</li>
+</ul>
+<p>前三中是同步方法，最后一种是管道方法</p>
+<h3 id="使用Object的wait-notify-方法"><a href="#使用Object的wait-notify-方法" class="headerlink" title="使用Object的wait()/notify()方法"></a>使用Object的wait()/notify()方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 生产者消费者模式：使用Object.wait() / notify()方法实现</span><br><span class="line"> */</span><br><span class="line">public class ProducerConsumer &#123;</span><br><span class="line">    private static final int CAPACITY = 5;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        Queue&lt;Integer&gt; queue = new LinkedList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">        Thread producer1 = new Producer(&quot;P-1&quot;, queue, CAPACITY);</span><br><span class="line">        Thread producer2 = new Producer(&quot;P-2&quot;, queue, CAPACITY);</span><br><span class="line">        Thread consumer1 = new Consumer(&quot;C1&quot;, queue, CAPACITY);</span><br><span class="line">        Thread consumer2 = new Consumer(&quot;C2&quot;, queue, CAPACITY);</span><br><span class="line">        Thread consumer3 = new Consumer(&quot;C3&quot;, queue, CAPACITY);</span><br><span class="line"></span><br><span class="line">        producer1.start();</span><br><span class="line">        producer2.start();</span><br><span class="line">        consumer1.start();</span><br><span class="line">        consumer2.start();</span><br><span class="line">        consumer3.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 生产者</span><br><span class="line">     */</span><br><span class="line">    public static class Producer extends Thread&#123;</span><br><span class="line">        private Queue&lt;Integer&gt; queue;</span><br><span class="line">        String name;</span><br><span class="line">        int maxSize;</span><br><span class="line">        int i = 0;</span><br><span class="line"></span><br><span class="line">        public Producer(String name, Queue&lt;Integer&gt; queue, int maxSize)&#123;</span><br><span class="line">            super(name);</span><br><span class="line">            this.name = name;</span><br><span class="line">            this.queue = queue;</span><br><span class="line">            this.maxSize = maxSize;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void run()&#123;</span><br><span class="line">            while(true)&#123;</span><br><span class="line">                synchronized(queue)&#123;</span><br><span class="line">                    while(queue.size() == maxSize)&#123;</span><br><span class="line">                        try &#123;</span><br><span class="line">                            System.out .println(&quot;Queue is full, Producer[&quot; + name + &quot;] thread waiting for &quot; + &quot;consumer to take something from queue.&quot;);</span><br><span class="line">                            queue.wait();</span><br><span class="line">                        &#125; catch (Exception ex) &#123;</span><br><span class="line">                            ex.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(&quot;[&quot; + name + &quot;] Producing value : +&quot; + i);</span><br><span class="line">                    queue.offer(i++);</span><br><span class="line">                    queue.notifyAll();</span><br><span class="line"></span><br><span class="line">                    try &#123;</span><br><span class="line">                        Thread.sleep(new Random().nextInt(1000));</span><br><span class="line">                    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 消费者</span><br><span class="line">     */</span><br><span class="line">    public static class Consumer extends Thread&#123;</span><br><span class="line">        private Queue&lt;Integer&gt; queue;</span><br><span class="line">        String name;</span><br><span class="line">        int maxSize;</span><br><span class="line"></span><br><span class="line">        public Consumer(String name, Queue&lt;Integer&gt; queue, int maxSize)&#123;</span><br><span class="line">            super(name);</span><br><span class="line">            this.name = name;</span><br><span class="line">            this.queue = queue;</span><br><span class="line">            this.maxSize = maxSize;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void run()&#123;</span><br><span class="line">            while(true)&#123;</span><br><span class="line">                synchronized(queue)&#123;</span><br><span class="line">                    while(queue.isEmpty())&#123;</span><br><span class="line">                        try &#123;</span><br><span class="line">                            System.out.println(&quot;Queue is empty, Consumer[&quot; + name + &quot;] thread is waiting for Producer&quot;);</span><br><span class="line">                            queue.wait();</span><br><span class="line">                        &#125; catch (Exception ex) &#123;</span><br><span class="line">                            ex.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    int x = queue.poll();</span><br><span class="line">                    System.out.println(&quot;[&quot; + name + &quot;] Consuming value : &quot; + x);</span><br><span class="line">                    queue.notifyAll();</span><br><span class="line"></span><br><span class="line">                    try &#123;</span><br><span class="line">                        Thread.sleep(new Random().nextInt(1000));</span><br><span class="line">                    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>为了防止线程虚假唤醒，在判断Queue大小为0或者大于等于queueSize时需使用while而不能使用if（自旋锁）</strong></p>
+<h2 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h2><h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><ul>
+<li>允许多个读者同时执行读写操作</li>
+<li>不允许读者，写者同时操作</li>
+<li>不允许多个写者同时操作</li>
+</ul>
+<h3 id="读写锁"><a href="#读写锁" class="headerlink" title="读写锁"></a>读写锁</h3><p>ReentrantReadWriteLock会使用两把锁来解决问题，一个读锁，一个写锁。<br>线程进入读锁的前提条件：</p>
+<ul>
+<li>没有其他线程的写锁</li>
+<li>没有写请求或者有写请求，但调用线程和持有锁的线程是同一个</li>
+</ul>
+<p>线程进入写锁的前提条件</p>
+<ul>
+<li>没有其他线程的读锁</li>
+<li>没有其他线程的写锁</li>
+</ul>
+<p>特性：</p>
+<ul>
+<li>WriteLock可以降级为ReadLock，顺序是：先获得WriteLock再获得ReadLock，然后释放WriteLock，这时候线程将保持Readlock的持有。反过来ReadLock想要升级为WriteLock则不可能</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">rwl.readLock().lock();</span><br><span class="line">      if (!cacheValid) &#123;</span><br><span class="line">         // Must release read lock before acquiring write lock</span><br><span class="line">         rwl.readLock().unlock();</span><br><span class="line">         rwl.writeLock().lock();</span><br><span class="line">        </span><br><span class="line">         if (!cacheValid) &#123;</span><br><span class="line">           data = ...</span><br><span class="line">           cacheValid = true;</span><br><span class="line">         &#125;</span><br><span class="line">       </span><br><span class="line">         rwl.readLock().lock();</span><br><span class="line">         rwl.writeLock().unlock(); // 降级：先获取读锁再释放写锁</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="读写锁实现读者写者问题"><a href="#读写锁实现读者写者问题" class="headerlink" title="读写锁实现读者写者问题"></a>读写锁实现读者写者问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Random;</span><br><span class="line">import java.util.concurrent.locks.ReentrantReadWriteLock;</span><br><span class="line"></span><br><span class="line">public class ReadWriteLockTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        final Queue3 q3 = new Queue3();</span><br><span class="line">        for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">            new Thread() &#123;</span><br><span class="line">                public void run() &#123;</span><br><span class="line">                    while (true) &#123;</span><br><span class="line">                        q3.get();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;.start();</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">            new Thread() &#123;</span><br><span class="line">                public void run() &#123;</span><br><span class="line">                    while (true) &#123;</span><br><span class="line">                        q3.put(new Random().nextInt(10000));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;.start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Queue3 &#123;</span><br><span class="line">    private Object data = null;// 共享数据，只能有一个线程能写该数据，但可以有多个线程同时读该数据。</span><br><span class="line">    private ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();</span><br><span class="line"></span><br><span class="line">    public void get() &#123;</span><br><span class="line">        rwl.readLock().lock();// 上读锁，其他线程只能读不能写</span><br><span class="line">        System.out.println(Thread.currentThread().getName()</span><br><span class="line">                + &quot; be ready to read data!&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep((long) (Math.random() * 1000));</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()</span><br><span class="line">                + &quot;have read data :&quot; + data);</span><br><span class="line">        rwl.readLock().unlock(); // 释放读锁，最好放在finnaly里面</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void put(Object data) &#123;</span><br><span class="line">        rwl.writeLock().lock();// 上写锁，不允许其他线程读也不允许写</span><br><span class="line">        System.out.println(Thread.currentThread().getName()</span><br><span class="line">                + &quot; be ready to write data!&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep((long) (Math.random() * 1000));</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        this.data = data;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()</span><br><span class="line">                + &quot; have write data: &quot; + data);</span><br><span class="line">        rwl.writeLock().unlock();// 释放写锁</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="哲学家问题"><a href="#哲学家问题" class="headerlink" title="哲学家问题"></a>哲学家问题</h3><p>暂不列举</p>
+<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h2><ul>
+<li>互斥： 每个资源要么已经分配给一个进程，要么就是可用的</li>
+<li>占有和等待：已经得到某个资源的进程可以再请求新的资源</li>
+<li>不可抢占：已经分配给一个进程的资源不能强制性地被抢占，它只能被占有它的进程显式地释放</li>
+<li>环路等待：有两个或者两个以上的进程组成一条环路，该环路中的每个进程都在等待下一个进程所占用的资源</li>
+</ul>
+<h2 id="处理方法"><a href="#处理方法" class="headerlink" title="处理方法"></a>处理方法</h2><h3 id="鸵鸟策略"><a href="#鸵鸟策略" class="headerlink" title="鸵鸟策略"></a><strong>鸵鸟策略</strong></h3><p>把头埋在沙子里，假装根本没发生问题。</p>
+<p>因为解决死锁问题的代价很高，因此鸵鸟策略这种不采取任务措施的方案会获得更高的性能。</p>
+<p>当发生死锁时不会对用户造成多大影响，或发生死锁的概率很低，可以采用鸵鸟策略。</p>
+<p>大多数操作系统，包括 Unix，Linux 和 Windows，处理死锁问题的办法仅仅是忽略它。</p>
+<h3 id="死锁检测与死锁恢复"><a href="#死锁检测与死锁恢复" class="headerlink" title="死锁检测与死锁恢复"></a><strong>死锁检测与死锁恢复</strong></h3><p>不试图阻止死锁，而是当检测到死锁发生时，采取措施进行恢复。</p>
+<ul>
+<li>抢占恢复</li>
+<li>回滚恢复</li>
+<li>杀死进程恢复</li>
+</ul>
+<h3 id="死锁预防"><a href="#死锁预防" class="headerlink" title="死锁预防"></a><strong>死锁预防</strong></h3><ul>
+<li><p>破坏互斥条件</p>
+<blockquote>
+<p>打印机进程</p>
+</blockquote>
+</li>
+<li><p>破坏占有和等待条件</p>
+<blockquote>
+<p>规定所有进程在开始执行前请求所需要的全部资源</p>
+</blockquote>
+</li>
+<li><p>破坏不可抢占条件</p>
+</li>
+<li><p>破坏环路等待</p>
+</li>
+</ul>
+<h3 id="死锁避免"><a href="#死锁避免" class="headerlink" title="死锁避免"></a><strong>死锁避免</strong></h3><p>在程序运行时避免发生死锁。<br><strong>银行家算法</strong></p>
+<h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h2 id="什么是缓存？"><a href="#什么是缓存？" class="headerlink" title="什么是缓存？"></a>什么是缓存？</h2><p><strong>缓存就是数据交换的缓冲区</strong><br>是存放使用频繁的数据的临时地方。相对于取原始数据的速度快一些。</p>
+<h2 id="缓存命中与缓存不命中"><a href="#缓存命中与缓存不命中" class="headerlink" title="缓存命中与缓存不命中"></a>缓存命中与缓存不命中</h2><p>数据是缓存好了，但是不一定缓存的数据就是需要的数据。</p>
+<p>所以取数据时也分缓存命中和缓存不命中。</p>
+<h3 id="缓存命中"><a href="#缓存命中" class="headerlink" title="缓存命中"></a>缓存命中</h3><p>意思就是第k+1层需要的数据就是第k层缓存好的，直接读取就行了。</p>
+<h3 id="缓存不命中"><a href="#缓存不命中" class="headerlink" title="缓存不命中"></a>缓存不命中</h3><p>意思就是第k+1层需要的数据在第k层中没有。发生缓存不命中之后，会把该数据缓存在第k层中，如果当前有空余的空间还好，可以直接缓存，但是如果没有空间就会导致替换的发生，意思就是覆盖第k层中的某一个块，当然，这个不是随便替换的，也会使用适用于<strong>当前情况的替换策略</strong>，可以随机替换、也可以根据在某个时间段内引用次数最少的块来替换、还有替换掉最长时间没有使用的块。</p>
+<h2 id="缓存方法"><a href="#缓存方法" class="headerlink" title="缓存方法"></a>缓存方法</h2><ul>
+<li>Least Frequently Used（LFU 最近不经常使用）：计算每个缓存对象被使用的频率，把不常用的缓存对象踢走。</li>
+<li>Least Recently User（LRU 最近最少使用）：把数据加入一个链表中，按访问时间排序，发生淘汰的时候，把访问时间最旧的淘汰掉。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/16/MYSQL详解/" rel="next" title="MYSQL详解">
+                <i class="fa fa-chevron-left"></i> MYSQL详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/26/Linux/" rel="prev" title="Linux">
+                Linux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/bz.gif"
+                alt="Caiiiiii" />
+            
+              <p class="site-author-name" itemprop="name">Caiiiiii</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Caiiiiii" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:995017591@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/cai-yuan-qin/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/id/995017591" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Steam</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程和线程"><span class="nav-number">1.</span> <span class="nav-text">进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.2.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程间通信的方式有什么？线程间通信的方式有什么？"><span class="nav-number">1.3.</span> <span class="nav-text">进程间通信的方式有什么？线程间通信的方式有什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程间通信的方式"><span class="nav-number">1.3.1.</span> <span class="nav-text">进程间通信的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程间通信的方式"><span class="nav-number">1.3.2.</span> <span class="nav-text">线程间通信的方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程同步问题"><span class="nav-number">1.4.</span> <span class="nav-text">进程同步问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念-1"><span class="nav-number">1.5.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#互斥与同步："><span class="nav-number">1.5.1.</span> <span class="nav-text">互斥与同步：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号量与互斥量："><span class="nav-number">1.5.2.</span> <span class="nav-text">信号量与互斥量：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.6.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-sleep-和-Object-wait-Object-notify-方法区别"><span class="nav-number">1.6.1.</span> <span class="nav-text">Thread.sleep() 和 Object.wait() , Object.notify() 方法区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程状态图"><span class="nav-number">1.6.2.</span> <span class="nav-text">线程状态图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现生产者消费者模型"><span class="nav-number">1.7.</span> <span class="nav-text">实现生产者消费者模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Object的wait-notify-方法"><span class="nav-number">1.7.1.</span> <span class="nav-text">使用Object的wait()/notify()方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读者-写者问题"><span class="nav-number">1.8.</span> <span class="nav-text">读者-写者问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要求"><span class="nav-number">1.8.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写锁"><span class="nav-number">1.8.2.</span> <span class="nav-text">读写锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写锁实现读者写者问题"><span class="nav-number">1.8.3.</span> <span class="nav-text">读写锁实现读者写者问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哲学家问题"><span class="nav-number">1.8.4.</span> <span class="nav-text">哲学家问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#死锁"><span class="nav-number">2.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#必要条件"><span class="nav-number">2.1.</span> <span class="nav-text">必要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理方法"><span class="nav-number">2.2.</span> <span class="nav-text">处理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#鸵鸟策略"><span class="nav-number">2.2.1.</span> <span class="nav-text">鸵鸟策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁检测与死锁恢复"><span class="nav-number">2.2.2.</span> <span class="nav-text">死锁检测与死锁恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁预防"><span class="nav-number">2.2.3.</span> <span class="nav-text">死锁预防</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁避免"><span class="nav-number">2.2.4.</span> <span class="nav-text">死锁避免</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存"><span class="nav-number">3.</span> <span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是缓存？"><span class="nav-number">3.1.</span> <span class="nav-text">什么是缓存？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存命中与缓存不命中"><span class="nav-number">3.2.</span> <span class="nav-text">缓存命中与缓存不命中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存命中"><span class="nav-number">3.2.1.</span> <span class="nav-text">缓存命中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存不命中"><span class="nav-number">3.2.2.</span> <span class="nav-text">缓存不命中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存方法"><span class="nav-number">3.3.</span> <span class="nav-text">缓存方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Caiiiiii</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
