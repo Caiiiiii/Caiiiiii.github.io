@@ -1,0 +1,14 @@
+I"m<h1 id="aspnet-事件">asp.net 事件</h1>
+
+<h2 id="page_load">Page_Load</h2>
+<p>Page_Load 事件会在页面加载时被触发，然后ASP.NET 会自动调用子例程Page_Load，并执行其中的代码。</p>
+
+<p>现在asp.net 事件格式如下：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>Sub Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    // content
+  End Sub
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET
