@@ -1,0 +1,25 @@
+---
+layout:     post
+title:      "VB 学习"
+subtitle:   "Hello World, Hello Blog"
+date:       2020-5-15
+author:     "Caiiiiii"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - Web
+    - JavaScript
+    - 译
+---
+
+# asp.net 事件
+
+## Page_Load
+Page_Load 事件会在页面加载时被触发，然后ASP.NET 会自动调用子例程Page_Load，并执行其中的代码。
+
+
+现在asp.net 事件格式如下：
+```
+Sub Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    // content
+  End Sub
+```
