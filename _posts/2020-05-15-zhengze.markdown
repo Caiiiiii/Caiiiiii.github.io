@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "正则表达式"
+title:      "Regular正则表达式"
 subtitle:   "Hello World, Hello Blog"
 date:       2020-5-15
 author:     "Caiiiiii"
