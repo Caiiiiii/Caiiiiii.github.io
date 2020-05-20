@@ -1,15 +1,13 @@
 ---
 layout:     post
-title:      "为什么这是错误的"
+title:      "正则表达式"
 subtitle:   "Hello World, Hello Blog"
 date:       2020-5-15
 author:     "Caiiiiii"
 header-img: "img/post-bg-2015.jpg"
 tags:
-    - Web
-    - Dotnet
-    - 译
-    - test
+    - 计算机基础
+    -正则表达式
 ---
 
 
