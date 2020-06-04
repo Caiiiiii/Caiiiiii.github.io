@@ -4,7 +4,7 @@ title:      "自然数的和"
 subtitle:   "Hello World, Hello Blog"
 date:       2020-06-04
 author:     "Caiiiiii"
-header-img: "img/post-5-18.jpg"
+header-img: "img/post.jpg"
 tags:
     - 算法
     - 基础
@@ -16,7 +16,8 @@ tags:
 public class Sum_Solution {
     public int Sum(int n){
         int res = n;
-        // && 有短路求值的原理，在前一个为 false 的时候，就不会执行后面一个，就能解决递归时当n<0的时候做不了判断的问题
+        // && 有短路求值的原理，在前一个为 false 的时候，
+        //就不会执行后面一个，就能解决递归时当n<0的时候做不了判断的问题
         boolean flag = (n>0)&&((res+=Sum(n-1))>0);
         return res;
     }

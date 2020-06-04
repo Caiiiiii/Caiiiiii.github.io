@@ -4,7 +4,7 @@ title:      "String 的详细总结"
 subtitle:   "Hello World, Hello Blog"
 date:       2020-5-18
 author:     "Caiiiiii"
-header-img: "img/post-5-18.jpg"
+header-img: "img/post.jpg"
 tags:
     - Java
     - 基础
