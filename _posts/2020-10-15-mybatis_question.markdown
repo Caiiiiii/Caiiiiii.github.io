@@ -1,0 +1,18 @@
+---
+layout:     post
+title:      "SpringBoot 与 Mybatis 踩过的坑"
+subtitle:   "Hello World, Hello Blog"
+date:       2020-10-15
+author:     "Caiiiiii"
+header-img: ![377160_screenshots_20201011175838_1.jpg](http://ww1.sinaimg.cn/large/bfd348c6gy1gjq1053d5gj21hc0mkqna.jpg)
+tags:
+    - Mybatis
+    - 框架
+    - Java  
+---
+
+ # 使用 MyBatis-gengerate 生成的Mapper在注入的时候会报错
+
+ ![E{JI[RH~~VJ(1$H@[8$B}2U.png](http://ww1.sinaimg.cn/large/bfd348c6gy1gjq13ea5i5j20jo02paa3.jpg)
+
+ answer：在mapper文件上加@Repository注解，这是从spring2.0新增的一个注解，用于简化 Spring 的开发，实现数据访问 
