@@ -11,8 +11,8 @@ tags:
     - Java  
 ---
 
- # 使用 MyBatis-gengerate 生成的Mapper在注入的时候会报错
+# 使用 MyBatis-gengerate 生成的Mapper在注入的时候会报错
 
- ![E{JI[RH~~VJ(1$H@[8$B}2U.png](http://ww1.sinaimg.cn/large/bfd348c6gy1gjq13ea5i5j20jo02paa3.jpg)
+![E{JI[RH~~VJ(1$H@[8$B}2U.png](http://ww1.sinaimg.cn/large/bfd348c6gy1gjq13ea5i5j20jo02paa3.jpg)
 
- answer：在mapper文件上加@Repository注解，这是从spring2.0新增的一个注解，用于简化 Spring 的开发，实现数据访问 
+answer：在mapper文件上加@Repository注解，这是从spring2.0新增的一个注解，用于简化 Spring 的开发，实现数据访问 
