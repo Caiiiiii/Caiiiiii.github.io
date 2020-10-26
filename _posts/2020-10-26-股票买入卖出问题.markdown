@@ -4,7 +4,7 @@ title:      "寻找股票买入卖出的最佳时机"
 subtitle:   "Hello World, Hello Blog"
 date:       2020-10-26
 author:     "Caiiiiii"
-header-img: "img/bfd348c6gy1gjq1053d5gj21hc0mkqna.jpg"
+header-img: "img/1174180_screenshots_20201019222158_1.jpg"
 tags:
     - 算法理解
     - Java  
