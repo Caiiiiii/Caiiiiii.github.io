@@ -4,7 +4,7 @@ title:      "SpringBoot 与 Mybatis 踩过的坑"
 subtitle:   "Hello World, Hello Blog"
 date:       2020-10-15
 author:     "Caiiiiii"
-header-img: "/img/bfd348c6gy1gjq1053d5gj21hc0mkqna.jpg"
+header-img: "img/bfd348c6gy1gjq1053d5gj21hc0mkqna.jpg"
 tags:
     - Mybatis
     - 框架

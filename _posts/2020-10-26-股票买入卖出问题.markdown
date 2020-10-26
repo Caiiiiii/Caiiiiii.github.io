@@ -1,0 +1,52 @@
+---
+layout:     post
+title:      "寻找股票买入卖出的最佳时机"
+subtitle:   "Hello World, Hello Blog"
+date:       2020-10-26
+author:     "Caiiiiii"
+header-img: "img/bfd348c6gy1gjq1053d5gj21hc0mkqna.jpg"
+tags:
+    - 算法理解
+    - Java  
+---
+
+#寻找股票买入卖出的最佳时机
+
+该数组对应的股票涨跌曲线如下：
+![gupiao](/img/gupiao-1.png)
+
+如何在这段时间内只允许买入卖出各一次操作，那如何才能计算出这只股票的最大收益呢？
+- 错误的想法是直接取最大值和最小值之间的差。这里就有个误区就是，如果最大值在最小值前面，那就是最大亏损收益了。
+
+
+正确的想法是*从数组第2个元素开始把每个时间点都假设成卖出点，找到对应的最佳买入点，逐一来计算差值。*
+因此，我们需要记录2个变量。
+- 1.最小值
+- 2.最大收益
+
+```
+public class StockProfit {
+
+    public static int maxProfitFor1Time(int prices[]) {
+        if(prices==null || prices.length==0) {
+            return 0;
+        }
+        int minPrice = prices[0];
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < minPrice) {
+                minPrice = prices[i];
+            } else if(prices[i] - minPrice > maxProfit){
+                maxProfit = prices[i] - minPrice;
+            }
+        }
+        return maxProfit;
+    }
+
+    public static void main(String[] args) {
+        int[] prices = {9,2,7,4,3,1,8,4};
+        System.out.println(maxProfitFor1Time(prices));
+    }
+
+}
+```
