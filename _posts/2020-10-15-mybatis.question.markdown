@@ -13,6 +13,6 @@ tags:
 
 # 使用 MyBatis-gengerate 生成的Mapper在注入的时候会报错
 
-![abcg](/imh/bfd348c6gy1gjq13ea5i5j20jo02paa3.jpg)
+![abcg](/img/bfd348c6gy1gjq13ea5i5j20jo02paa3.jpg)
 
 answer：在mapper文件上加@Repository注解，这是从spring2.0新增的一个注解，用于简化 Spring 的开发，实现数据访问 
