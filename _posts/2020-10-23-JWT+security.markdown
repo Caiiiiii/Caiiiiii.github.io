@@ -11,20 +11,20 @@ tags:
     - JWT
 ---
 
-#JWT + Spring Security
+# JWT + Spring Security
 本文讲解的是Mall项目中JWT和Spring Security的搭建过程
 本文基本参考搭建 ![文章链接](https://github.com/echisan/springboot-jwt-demo/blob/master/blog_content.md)
-##简介
+## 简介
 JWT 与 Spring Security的结合，是一个基于token的权限管理系统。这个方案利于前后端分离的开发工作。
 
-##什么是JWT
+## 什么是JWT
 JSON WEB Token（JWT），是一种基于JSON的、用于在网络上声明某种主张的令牌（token）。JWT通常由三部分组成: 头信息（header）, 消息体（payload）和签名（signature）。
 
-###用途
+### 用途
 - 授权：这是JWT的最常见使用场景。 一旦用户登录，后续每个请求将携带JWT，从而允许用户访问该token允许的路径，服务和资源。 单一登录是当今广泛使用JWT的一项功能，因为它的开销很小并且可以在不同的域名中轻松使用。
 - 信息交换：JWT是在各方之间安全传输信息的一种好方法。 因为可以对JWT进行签名（例如，使用公钥/私钥对），所以您可以确定发送人是他们自己。 此外，由于签名是使用header和payload计算的，因此您还可以验证内容是否被篡改。
 
-###结构
+### 结构
 头信息指定了该JWT使用的签名算法:
 
 header = '{"alg":"HS256","typ":"JWT"}'
@@ -51,13 +51,13 @@ Authorization: Bearer eyJhbGci*...<snip>...*yu5CSpyHI
 
 ps:![参考文章](https://zhuanlan.zhihu.com/p/99705304)
 
-###总结
+### 总结
 基于token的鉴权机制类似于http协议也是无状态的，它不需要在服务端去保留用户的认证信息或会话信息。这也就意味着机遇tokent认证机制的应用不需要去考虑用户在哪一台服务器登陆了，这就为应用的扩展提供了便利。
 
-##什么是Spring Security
+## 什么是Spring Security
 Spring Security是为基于Spring的应用程序提供声明式安全保护的安全性框架，它能够在web请求级别和方法调用级别处理身份认证和授权。由于是基于Spring框架，它充分地利用了依赖注入和面向切面技术。Spring Security从两个角度来解决安全性问题，它使用Servlet规范中的Filter保护web请求并限制URL级别的访问，通过Spring AOP保护方法调用。
 
-##搭建流程
+## 搭建流程
 
 ### 在项目中引入JWT的Maven
 ```
@@ -72,7 +72,7 @@ Spring Security是为基于Spring的应用程序提供声明式安全保护的�
         </dependency>
 ```
 
-###JwtTokenUtils
+### JwtTokenUtils
 JWT工具类。对JJWT封装:创建token,从token中获取信息等。
 ```
 public class JwtTokenUtils {
@@ -134,7 +134,7 @@ public class JwtTokenUtils {
 }
 ```
 
-###编写一个根据用户名获取用户的方法
+### 编写一个根据用户名获取用户的方法
 ```
     @Override
     public AdminLogin findAdminByUserName(String username) {
@@ -142,7 +142,7 @@ public class JwtTokenUtils {
     }
 ```
 
-###创建JwtUser对象类实现UserDetails接口。
+### 创建JwtUser对象类实现UserDetails接口。
 ```
 public class JwtUser implements UserDetails {
 
@@ -219,7 +219,7 @@ public class JwtUser implements UserDetails {
 
 ```
 
-###CustomUserDetailsServiceImpl
+### CustomUserDetailsServiceImpl
 使用springSecurity需要实现UserDetailsService接口供权限框架调用，根据用户名去获取用户,再通过用户查找到其角色权限。并创建返回JwtUser
 ```
 @Service
@@ -244,11 +244,11 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
 }
 ```
 
-###配置拦截器
+### 配置拦截器
 需要重写两个方法，一个是用户验证，一个是权限验证。
 使用JWTAuthenticationFilter去进行用户账号的验证，使用JWTAuthorizationFilter去进行用户权限的验证。
 
-###JWTAuthenticationFilter
+### JWTAuthenticationFilter
 
 JWTAuthenticationFilter继承于UsernamePasswordAuthenticationFilter 该拦截器用于获取用户登录的信息，只需创建一个token并调用authenticationManager.authenticate()让spring-security去进行验证就可以了，不用自己查数据库再对比密码了，这一步交给spring去操作。 
 ```
@@ -313,7 +313,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
 ```
 
-###JWTAuthorizationFilter
+### JWTAuthorizationFilter
 验证成功当然就是进行鉴权了，每一次需要权限的请求都需要检查该用户是否有该权限去操作该资源，当然这也是框架帮我们做的，那么我们需要做什么呢？很简单，只要告诉spring-security该用户是否已登录，是什么角色，拥有什么权限就可以了。 JWTAuthenticationFilter继承于BasicAuthenticationFilter。只要确保过滤器在config里的顺序，JWTAuthorizationFilter在JWTAuthenticationFilter后面就没问题了。
 ```
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
@@ -353,7 +353,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
 ```
 
-###统一结果处理
+### 统一结果处理
 统一处理被403响应的事件，新建JWTAuthenticationEntryPoint类
 ```
 public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint {
@@ -372,7 +372,7 @@ public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint {
 ```
 
 
-###配置SpringSecurity
+### 配置SpringSecurity
 需要开启一下注解@EnableWebSecurity然后再继承一下WebSecurityConfigurerAdapter.
 ```
 @EnableWebSecurity
@@ -438,7 +438,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ```
 
-###到目前为止就可以进行测试登录了。当然前提先编写一个注册方法。
+### 到目前为止就可以进行测试登录了。当然前提先编写一个注册方法。
 那登录在哪呢？我们看一下UsernamePasswordAuthenticationFilter的源代码
 ```
 public UsernamePasswordAuthenticationFilter() {
@@ -453,12 +453,12 @@ public UsernamePasswordAuthenticationFilter() {
     }
 ```
 
-###测试
+### 测试
 可以看到postman中，在登录成功后的响应头部会有一个生成的token。
 接下来只需要把该响应头添加到我们的请求头上去，这里需要把Bearer[空格]去掉，注意Bearer后的空格也要去掉，因为postman再选了BearerToken之后会自动在token前面再加一个Bearer。
 ![测试图片](/img/postmanbyjwtlogin.png)
 
-###配置访问权限
+### 配置访问权限
 在权限配置方面，有2种方法。并且有2种写法。
 方法1：在springSecurity中配置访问权限
 ```
