@@ -49,7 +49,7 @@ JWT常常被用作保护服务端的资源（resource），客户端通常将JWT
 
 Authorization: Bearer eyJhbGci*...<snip>...*yu5CSpyHI
 
-ps:![参考文章](https://zhuanlan.zhihu.com/p/99705304)
+ps:参考文章 https://zhuanlan.zhihu.com/p/99705304
 
 ### 总结
 基于token的鉴权机制类似于http协议也是无状态的，它不需要在服务端去保留用户的认证信息或会话信息。这也就意味着机遇tokent认证机制的应用不需要去考虑用户在哪一台服务器登陆了，这就为应用的扩展提供了便利。
