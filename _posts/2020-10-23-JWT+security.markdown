@@ -13,7 +13,7 @@ tags:
 
 # JWT + Spring Security
 本文讲解的是Mall项目中JWT和Spring Security的搭建过程
-本文基本参考搭建 ![文章链接](https://github.com/echisan/springboot-jwt-demo/blob/master/blog_content.md)
+本文基本参考搭建  https://github.com/echisan/springboot-jwt-demo/blob/master/blog_content.md
 ## 简介
 JWT 与 Spring Security的结合，是一个基于token的权限管理系统。这个方案利于前后端分离的开发工作。
 
