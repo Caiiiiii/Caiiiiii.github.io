@@ -492,3 +492,44 @@ public UsernamePasswordAuthenticationFilter() {
 
 ```
 
+
+### 遇到的错误
+
+1.报错 javax.xml.bind.DatatypeConverter
+```
+ava.lang.ClassNotFoundException: javax.xml.bind.DatatypeConverter
+    at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:602) ~[?:?]
+    at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[?:?]
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+    at io.jsonwebtoken.impl.Base64Codec.decode(Base64Codec.java:26) ~[jjwt-0.9.0.jar:0.9.0]
+    at io.jsonwebtoken.impl.DefaultJwtBuilder.signWith(DefaultJwtBuilder.java:99) ~[jjwt-0.9.0.jar:0.9.0]
+    at com.online.mall.utils.jwt.JwtTokenUtils.createToken(JwtTokenUtils.java:36) ~[classes/:?]
+    at com.online.mall.config.JwtFilter.JWTAuthenticationFilter.successfulAuthentication(JWTAuthenticationFilter.java:68) ~[classes/:?]
+```
+
+问题所在：缺少序列化为XML的jar包
+```
+ public static String createToken(String username,String role, boolean isRememberMe) {
+        long expiration = isRememberMe ? EXPIRATION_REMEMBER : EXPIRATION;
+        HashMap<String, Object> map = new HashMap<>();
+        map.put(ROLE_CLAIMS, role);
+        return Jwts.builder()
+                .signWith(SignatureAlgorithm.HS512, SECRET)      //此处报错
+                .setClaims(map)
+                .setIssuer(ISS)
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + expiration * 1000))
+                .compact();
+    }
+```
+
+解决方案：导入相应Maven
+```
+ <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+```
+
