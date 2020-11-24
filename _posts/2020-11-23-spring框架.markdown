@@ -56,4 +56,19 @@ Spring 是Java的一种轻量级的开发框架，它是很多模块的集合，
  在Spring5.x中Web模块的Portlet被弃用，同时增加了异步响应式处理的WebFlux组件。
 ![Spring主要模块.png](/img/Spring主要模块.png)
 
-- Spring Cor：基础，可以说Spring其他所有的功能都需要依赖于该库。主要提供Ioc依赖注入功能。
+- Spring Core：基础，可以说Spring其他所有的功能都需要依赖于该库。主要提供Ioc依赖注入功能。
+- Spring AOP: 提供面向切面编程的实现
+- Spring Aspects： 该模块为与AspectJ的集成提供支持。
+- Spring JDBC： Java数据库链接。
+- Spring JMS： Java消息服务。
+- Spring ORM: 用于支持Hibernate等ORM工具。
+- Spring Web: 为创建Web应用程序提供支持。
+- Spring Test： 提供了对 JUnit 和 TestNG 测试的支持。
+
+
+
+
+
+## 什么是AOP？是怎么实现的？
+AOP称为面向切面编程，是OOP（面向对象编程）的一种延续。主要用途是在不改变原有业务逻辑的情况下，增强横切逻辑代码，根本上解耦合，避免横切逻辑代码重复。
+ 
