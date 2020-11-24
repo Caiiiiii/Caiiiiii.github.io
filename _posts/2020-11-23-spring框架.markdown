@@ -16,31 +16,31 @@ tags:
 Spring 是Java的一种轻量级的开发框架，它是很多模块的集合，其中包括：核心容器、数据访问/集成、Web、AOP(面向切面编程)、工具、消息、和测试模块。   
 
 1.核心容器（Core Container）
-  1.Spring-Core：核心工具类，Spring其他大量模块使用Spring-Core；
-  2.Spring-Beans：Spring定义Bean的支持；
-  3.Spring-Content：运行时Spring容器；
-  4.Spring-Context-Support：Spring容器对第三方包的集成支持；
-  5.Spring-Expression：使用表达式语言在运行是查询和操作对象。
+    1.Spring-Core：核心工具类，Spring其他大量模块使用Spring-Core；
+    2.Spring-Beans：Spring定义Bean的支持；
+    3.Spring-Content：运行时Spring容器；
+    4.Spring-Context-Support：Spring容器对第三方包的集成支持；
+    5.Spring-Expression：使用表达式语言在运行是查询和操作对象。
 
 2.AOP
-  1.Spring-AOP：基于代理的AOP支持；
-  2.Spring-Aspects：基于AspectJ的AOP支持。
+    1.Spring-AOP：基于代理的AOP支持；
+    2.Spring-Aspects：基于AspectJ的AOP支持。
 
 3.消息（Messaging）
-  1.Spring-Messaging：对消息架构和协议的支持。
+    1.Spring-Messaging：对消息架构和协议的支持。
 
 4.Web
-  1.Spring-Web：提供基础的Web集成功能，在Web项目中提供Spring的容器；
-  2.Spring-Webmvc：提供基于Servlet的Spring MVC；
-  3.Spring-WebScoket：提供WebScoket功能；
-  4.Spring-Webmvc-Portlet：提供Portlet环境支持。
+    1.Spring-Web：提供基础的Web集成功能，在Web项目中提供Spring的容器；
+    2.Spring-Webmvc：提供基于Servlet的Spring MVC；
+    3.Spring-WebScoket：提供WebScoket功能；
+    4.Spring-Webmvc-Portlet：提供Portlet环境支持。
  
 5.数据访问/集成（Data Access/Integration）
-  1.Spring-JDBC：提供以JDBC访问数据库的支持
-  2.Spring-TX：提供编程式和声明式的失误支持；
-  3.Spring-ORM：提供对对象/关系映射技术的支持；
-  4.Spring-OXM：提供对对象/xml映射技术的支持；
-  5.Spring-JMS：提供对JMS的支持。
+    1.Spring-JDBC：提供以JDBC访问数据库的支持
+    2.Spring-TX：提供编程式和声明式的失误支持；
+    3.Spring-ORM：提供对对象/关系映射技术的支持；
+    4.Spring-OXM：提供对对象/xml映射技术的支持；
+    5.Spring-JMS：提供对JMS的支持。
 
 
  Spring 官网列出的 Spring 的 6 个特征:
