@@ -48,5 +48,8 @@ Spring 是Java的一种轻量级的开发框架，它是很多模块的集合，
  - 语言 ：Kotlin，Groovy，动态语言。
 
 
- # 列举Spring中的重要模块
+# 列举Spring中的重要模块
+ 在Spring5.x中Web模块的Portlet被弃用，同时增加了异步响应式处理的WebFlux组件。
 ![Spring主要模块.png](/img/Spring主要模块.png)
+
+- Spring Cor：基础，可以说Spring其他所有的功能都需要依赖于该库。主要提供Ioc依赖注入功能。
