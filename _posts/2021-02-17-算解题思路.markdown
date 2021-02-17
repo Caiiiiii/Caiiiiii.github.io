@@ -1,0 +1,24 @@
+---
+layout:     post
+title:      "算法解题思路"
+subtitle:   "Hello World, Hello Blog"
+date:       2021-02-17
+author:     "Caiiiiii"
+header-img: "img/1174180_screenshots_20201019222158_1.jpg"
+tags:
+    - Spring
+    - Java  
+---
+
+
+# 算法解题思路
+
+## 找到数据中任一一对出现过的数字
+
+1. 使用HashSet 来进行判断  （HashSet不能存储重复元素）
+
+2. 使用临时数组重新排序
+
+3. 将数组重新排序后判断
+
+4.利用数组下标进行计算。 （如将1放在nums[1]下，下次遇见1就能判断出现过了）
