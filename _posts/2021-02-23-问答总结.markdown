@@ -45,3 +45,47 @@ SpringMVC 原理就是SpringMVC 工作流程
 
 ### 简略点的版本
 ![](img/springmvc.png)
+
+
+# 多用连表查询
+
+# Mybatis 是如何防止SQL注入？
+1.Mybatis中使用#可以防止SQL注入，$并不能防止SQL注入
+2.#将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。
+3.Mybatis实现SQL注入的原理是调用了jdbc中的PreparedStatement来进行预处理。
+
+# 拦截器的实现
+
+1.UserInterceptor配置类继承HandlerInterceptor类重写preHandle，postHandle ，afterCompletion方法。
+
+## springboot 
+springboot 中的拦截器配置类InterceptionConfig 继承了WebMvcConfigurer类 ，在addInterceptors注册UserInterceptor类并添加需要拦截的请求。
+
+## springmvc
+springmvc 则是在springmvc-config.xml文件中添加<mvc:interceptor>标签注册UserInterceptor 并添加需要拦截的请求。
+
+# 二分法查找
+```
+private static int findIndex2(int[] arr, int ele) {
+        int minIndex=0;
+        int maxIndex=arr.length-1;
+        int midIndex=(minIndex+maxIndex)/2;
+        while (minIndex <= maxIndex){
+            //如果要查的元素,正好等于中间索引所对应的元素 直接返回这个中间索引
+            if (ele == arr[midIndex]) {
+                return midIndex;
+                //如果你要查找的元素比中间索引所对应的元素大 那么就动最小索引
+            } else if (ele > arr[midIndex]) {
+
+                minIndex = midIndex + 1;
+                //如果你要查找的元素比中间索引所对应的元素小,那么你就动最大索引
+            } else if (ele < arr[midIndex]) {
+                maxIndex = midIndex - 1; 
+            }
+            //再重新计算中间索引
+            midIndex = (minIndex + maxIndex) / 2;
+        }
+        return -1;
+    }
+
+```
