@@ -138,4 +138,4 @@ class  ThreadMethod implements  Runnable{
 - 任务队列： 是当任务较多时，线程池中线程的数量已经达到了核心线程数，这时候就是用任务队列来存储我们提交的任务。 与其他池化技术不同的是，线程池是基于生产者-消费者模式来实现的，任务的提交方是生产者，线程池是消费者
 
 ## 流程
-![](img/threadpool.jpg)
+![线程池原理](/img/threadpool.jpg)
