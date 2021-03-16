@@ -27,6 +27,19 @@ ps:jdk1.8后当单个链表超过8个时候变成红黑树。
 5.Hashtable没有自定义哈希算法，而直接采用的key的hashCode()。
 
 
+# HashMap 为什么是线程不安全的？想要线程安全如何做？
+jdk1.7 是因为数组扩容的原因，当并发执行扩容操作时会造成环形链和数据丢失情况。
+jdk1.8 是因为HashMap在并发情况下执行put方法时会进行是否发生hash碰撞的判断，如果线程抢断，会发生数据覆盖的情况。
+![HashMap 为什么是线程不安全的](https://blog.csdn.net/zzu_seu/article/details/106669757)
+
+
+使用 java.util.Hashtable 类，此类是线程安全的。
+使用 java.util.concurrent.ConcurrentHashMap，此类是线程安全的。
+使用 java.util.Collections.synchronizedMap () 方法包装 HashMap object，得到线程安全的 Map，并在此 Map 上进行操作。
+
+
+
+
 # SpringMVC 原理
 SpringMVC 原理就是SpringMVC 工作流程
 
@@ -89,3 +102,40 @@ private static int findIndex2(int[] arr, int ele) {
     }
 
 ```
+
+# 用两个线程求 1 + 100的和
+```
+public class ThreadSum {
+    public static void main(String[] args) {
+         ThreadMethod t1 = new ThreadMethod();
+         ThreadMethod t2 = new ThreadMethod();
+         t1.run();
+         t2.run();
+    }
+}
+class  ThreadMethod implements  Runnable{
+    static int sum = 0 ;
+    static int num = 1;
+    @Override
+    public synchronized void run() {
+        while ( num <= 100){
+            sum+=num;
+            num++;
+        }
+        if (num>100){
+            System.out.println(sum);
+        }
+    }
+}
+```
+
+
+# 线程池的实现原理
+
+## 基本概念
+- 核心线程数：指的是线程池的基本大小
+- 最大线程数： 指的是，同一时刻线程池中线程的数量最大不能超过该值
+- 任务队列： 是当任务较多时，线程池中线程的数量已经达到了核心线程数，这时候就是用任务队列来存储我们提交的任务。 与其他池化技术不同的是，线程池是基于生产者-消费者模式来实现的，任务的提交方是生产者，线程池是消费者
+
+## 流程
+![](img/threadpool.jpg)
