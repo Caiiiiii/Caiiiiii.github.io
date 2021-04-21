@@ -301,3 +301,74 @@ set 元素会动态地在行首插入 SET 关键字，并会删掉额外的逗�
 </update>
 ```
 
+### foreach
+动态 SQL 的另一个常见使用场景是对集合进行遍历
+```
+<select id="selectPostIn" resultType="domain.blog.Post">
+  SELECT *
+  FROM POST P
+  WHERE ID in
+  <foreach item="item" index="index" collection="list"
+      open="(" separator="," close=")">
+        #{item}
+  </foreach>
+</select>
+```
+
+
+## 日志
+Mybatis 通过使用内置的日志工厂提供日志功能。内置日志工厂将会把日志工作委托给下面的实现之一：
+
+1.SLF4J
+2.Apache Commons Logging
+3.Log4j 2
+4.Log4j
+5.JDK logging
+
+
+  
+你可以通过在 MyBatis 配置文件 mybatis-config.xml 里面添加一项 setting 来选择其它日志实现。
+```
+<configuration>
+  <settings>
+    ...
+    <setting name="logImpl" value="LOG4J"/>
+    ...
+  </settings>
+</configuration>
+```
+
+
+### 日志配置方法
+
+- 添加jar包
+可以通过maven的导入
+
+- 配置 Log4J
+假设你需要记录这个映射器的日志：
+```
+package org.mybatis.example;
+public interface BlogMapper {
+  @Select("SELECT * FROM blog WHERE id = #{id}")
+  Blog selectBlog(int id);
+}
+```
+
+在应用的类路径中创建一个名为 log4j.properties 的文件
+```
+# 全局日志配置
+log4j.rootLogger=ERROR, stdout
+# MyBatis 日志配置
+log4j.logger.org.mybatis.example.BlogMapper=TRACE
+# 控制台输出
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
+```
+
+
+为了实现更细粒度的日志输出，你也可以只打印特定语句的日志。以下配置将只打印语句 selectBlog 的日志：
+```
+log4j.logger.org.mybatis.example.BlogMapper.selectBlog=TRACE
+```
+

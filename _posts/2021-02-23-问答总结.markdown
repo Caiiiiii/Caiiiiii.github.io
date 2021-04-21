@@ -4,6 +4,7 @@ title:      "问答总结"
 subtitle:   "Hello World, Hello Blog"
 date:       2021-02-23
 author:     "Caiiiiii"
+catalog:    true
 header-img: "img/1174180_screenshots_20201019222158_1.jpg"
 tags:
     - Spring
@@ -41,6 +42,26 @@ jdk1.8 是因为HashMap在并发情况下执行put方法时会进行是否发生
 使用 java.util.Hashtable 类，此类是线程安全的。
 使用 java.util.concurrent.ConcurrentHashMap，此类是线程安全的。
 使用 java.util.Collections.synchronizedMap () 方法包装 HashMap object，得到线程安全的 Map，并在此 Map 上进行操作。
+
+
+# HashMap 怎么循环
+1. 用过ForEach 循环遍历
+```
+for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+			System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+		}
+
+```
+
+2. 带泛型的迭代器
+```
+Iterator<Map.Entry<Integer, Integer>> entries = map.entrySet().iterator();
+		while (entries.hasNext()) {
+			Map.Entry<Integer, Integer> entry = entries.next();
+			System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+		}
+
+```
 
 
 # HashTable是怎么上锁的？ConcurrentHashMap是怎么上锁的？
@@ -184,6 +205,13 @@ class  ThreadMethod implements  Runnable{
 直接静悄悄的丢弃这个任务，不触发任何动作。
 
 
+# 进程和线程
+进程是程序的一次执行过程，是系统进行资源分配和调度的基本单位本单位。
+线程是是CPU调度和分配的基本单位，一个进程可以有多个线程
+
+## 区别
+同一进程中的线程共享本进程的地址空间和资源，而进程之间的地址空间和资源是相互独立的
+
 # 线程执行瞬间问题
 
 ## Thread.start()
@@ -197,3 +225,16 @@ class  ThreadMethod implements  Runnable{
 
 # 什么是事务
 事务包含一个或多个业务操作，这些操作要么都执行，要么都不执行。事务常被用来确保数据的一致性。
+
+
+# MySQL索引
+
+## 索引类型
+1.普通索引
+  - CREATE INDEX index_name ON table(column(length))
+2.主键索引
+3.唯一索引
+  - CREATE UNIQUE INDEX indexName ON table(column(length))
+4.全文索引
+  - CREATE FULLTEXT INDEX index_content ON article(content)
+
