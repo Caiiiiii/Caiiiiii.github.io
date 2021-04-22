@@ -93,7 +93,7 @@ SpringMVC 原理就是SpringMVC 工作流程
 
 
 ### 简略点的版本
-![简略版本](img/springmvc.png)
+![简略版本](/img/springmvc.png)
 
 
 # 多用连表查询
