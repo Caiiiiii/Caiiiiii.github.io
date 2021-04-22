@@ -13,39 +13,39 @@ tags:
 
 # HashMap 和 HashTable 之间的区别
 ## HashMap
-1.由数组+链表组成，链表则是主要为了解决哈希冲突而存在的。
+1.由数组+链表组成，链表则是主要为了解决哈希冲突而存在的。  
 ps:jdk1.8后当单个链表超过8个时候变成红黑树。
-2.不是线程安全的，HashMap可以接受为null的键和值。
-3.初始size为16，当Map中元素超过Entry数组的75%，触发扩容操作，每次扩容是上次的2倍
-4.HashMap继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。
-5.HashMap添加元素时，是使用自定义的哈希算法。
+2.不是线程安全的，HashMap可以接受为null的键和值。  
+3.初始size为16，当Map中元素超过Entry数组的75%，触发扩容操作，每次扩容是上次的2倍  
+4.HashMap继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。  
+5.HashMap添加元素时，是使用自定义的哈希算法。  
 
 ## Hashtable
-1.由数组+链表组成。
-2.是线程安全的，无论Key和value都不能为null，实现线程安全的方法是修改数据时锁住整个HashTable，效率低。
-3.初始size为11，扩容：newsize = olesize*2+1。
-4.Hashtable 继承于Dictionary，实现了Map、Cloneable、java.io.Serializable接口。
-5.Hashtable没有自定义哈希算法，而直接采用的key的hashCode()。
+1.由数组+链表组成。  
+2.是线程安全的，无论Key和value都不能为null，实现线程安全的方法是修改数据时锁住整个HashTable，效率低。  
+3.初始size为11，扩容：newsize = olesize*2+1。  
+4.Hashtable 继承于Dictionary，实现了Map、Cloneable、java.io.Serializable接口。  
+5.Hashtable没有自定义哈希算法，而直接采用的key的hashCode()。  
 
 
 
 # HashMap 插入数据流程图
-1.将Key的Hashcode根据函数生成hash值
-2.通过计算判断当前元素存放的位置，如果当前位置存在元素的话，就判断该元素与要存入的元素的hash值和key是否相同，如果是，就覆盖value值，如果不是，就在HashMap 当前位置下（桶）的链表后插入数据
+1.将Key的Hashcode根据函数生成hash值  
+2.通过计算判断当前元素存放的位置，如果当前位置存在元素的话，就判断该元素与要存入的元素的hash值和key是否相同，如果是，就覆盖value值，如果不是，就在HashMap 当前位置下（桶）的链表后插入数据  
 
 # HashMap 为什么是线程不安全的？想要线程安全如何做？
-jdk1.7 是因为数组扩容的原因，当并发执行扩容操作时会造成环形链和数据丢失情况。
-jdk1.8 是因为HashMap在并发情况下执行put方法时会进行是否发生hash碰撞的判断，如果线程抢断，会发生数据覆盖的情况。
-[HashMap 为什么是线程不安全的](https://blog.csdn.net/zzu_seu/article/details/106669757)
+jdk1.7 是因为数组扩容的原因，当并发执行扩容操作时会造成环形链和数据丢失情况。  
+jdk1.8 是因为HashMap在并发情况下执行put方法时会进行是否发生hash碰撞的判断，如果线程抢断，会发生数据覆盖的情况。  
+[HashMap 为什么是线程不安全的](https://blog.csdn.net/zzu_seu/article/details/106669757)  
 
 
-使用 java.util.Hashtable 类，此类是线程安全的。
-使用 java.util.concurrent.ConcurrentHashMap，此类是线程安全的。
-使用 java.util.Collections.synchronizedMap () 方法包装 HashMap object，得到线程安全的 Map，并在此 Map 上进行操作。
+使用 java.util.Hashtable 类，此类是线程安全的。  
+使用 java.util.concurrent.ConcurrentHashMap，此类是线程安全的。  
+使用 java.util.Collections.synchronizedMap () 方法包装 HashMap   object，得到线程安全的 Map，并在此 Map 上进行操作。  
 
 
 # HashMap 怎么循环
-1. 用过ForEach 循环遍历
+1. 用过ForEach 循环遍历  
 ```
 for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 			System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
@@ -53,7 +53,7 @@ for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 
 ```
 
-2. 带泛型的迭代器
+2. 带泛型的迭代器  
 ```
 Iterator<Map.Entry<Integer, Integer>> entries = map.entrySet().iterator();
 		while (entries.hasNext()) {
@@ -65,12 +65,12 @@ Iterator<Map.Entry<Integer, Integer>> entries = map.entrySet().iterator();
 
 
 # HashTable是怎么上锁的？ConcurrentHashMap是怎么上锁的？
-HashTable get/put所有的相关操作都是synchronized的，相当于整个Hash表加了一把大锁。
+HashTable get/put所有的相关操作都是synchronized的，相当于整个Hash表加了一把大锁。  
 
-ConcurrentHashMap 在jdk1.7是分段数组+链表，相当于多个数组+链表组成。每次锁住一段数组。
+ConcurrentHashMap   在jdk1.7是分段数组+链表，相当于多个数组+链表组成。每次锁住一段数组。  
 
-ConcurrentHashMap
- 在jdk1.8是数组+链表形式，采用的CAS+ synchronized方式锁住数组。
+ConcurrentHashMap  
+ 在jdk1.8是数组+链表形式，采用的CAS+ synchronized方式锁住数组。  
  - 在put()执行时，如果没有hash冲突就直接CAS无锁插入，如果存在hash冲突，就通过加锁（synchronized）的方式插入。
 
 
@@ -79,33 +79,33 @@ ConcurrentHashMap
 # SpringMVC 原理
 SpringMVC 原理就是SpringMVC 工作流程
 
-1.用户发送请求至前端控制器DispatcherServlet。
-2.DispatcherServlet收到请求调用HandlerMapping处理器映射器。
-3.处理器映射器找到具体的处理器(可以根据xml配置、注解进行查找)，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。
-4.DispatcherServlet调用HandlerAdapter处理器适配器。
-5.HandlerAdapter经过适配调用具体的处理器(Controller，也叫后端控制器)。
-6.Controller执行完成返回ModelAndView。
-7.HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet。
-8.DispatcherServlet将ModelAndView传给ViewReslover视图解析器。
-9.ViewReslover解析后返回具体View。
-10.DispatcherServlet根据View进行渲染视图（即将模型数据填充至视图中）。
-11.DispatcherServlet响应用户。
+1.用户发送请求至前端控制器DispatcherServlet。  
+2.DispatcherServlet收到请求调用HandlerMapping处理器映射器。  
+3.处理器映射器找到具体的处理器(可以根据xml配置、注解进行查找)，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。  
+4.DispatcherServlet调用HandlerAdapter处理器适配器。  
+5.HandlerAdapter经过适配调用具体的处理器(Controller，也叫后端控制器)。  
+6.Controller执行完成返回ModelAndView。  
+7.HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet。  
+8.DispatcherServlet将ModelAndView传给ViewReslover视图解析器。  
+9.ViewReslover解析后返回具体View。  
+10.DispatcherServlet根据View进行渲染视图（即将模型数据填充至视图中）。  
+11.DispatcherServlet响应用户。  
 
 
 ### 简略点的版本
-![](img/springmvc.png)
+![简略版本](img/springmvc.png)
 
 
 # 多用连表查询
 
 # Mybatis 是如何防止SQL注入？
-1.Mybatis中使用#可以防止SQL注入，$并不能防止SQL注入
-2.#将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。
-3.Mybatis实现SQL注入的原理是调用了jdbc中的PreparedStatement来进行预处理。
+1.Mybatis中使用#可以防止SQL注入，$并不能防止SQL注入  
+2.#将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。  
+3.Mybatis实现SQL注入的原理是调用了jdbc中的PreparedStatement来进行预处理。  
 
 # 拦截器的实现
 
-1.UserInterceptor配置类继承HandlerInterceptor类重写preHandle，postHandle ，afterCompletion方法。
+1.UserInterceptor配置类继承HandlerInterceptor类重写preHandle，postHandle ，afterCompletion方法。  
 
 ## springboot 
 springboot 中的拦截器配置类InterceptionConfig 继承了WebMvcConfigurer类 ，在addInterceptors注册UserInterceptor类并添加需要拦截的请求。
