@@ -10,6 +10,15 @@ tags:
     - Spring
     - Java  
 ---
+# equals 和 "==" 区别
+## java 中 "==" 的含义
+基本数据类型：比较他们的值
+引用数据类型：比较的是内存中存放地址
+
+## java 中equals的含义
+这个方法初始默认行为是比较对象中的内存地址值。  
+在一些类库中被重写，如String Integer，这些有其自身的实现，如比较对象的成员变量。
+
 
 # HashMap 和 HashTable 之间的区别
 ## HashMap
@@ -237,4 +246,71 @@ class  ThreadMethod implements  Runnable{
   - CREATE UNIQUE INDEX indexName ON table(column(length))
 4.全文索引
   - CREATE FULLTEXT INDEX index_content ON article(content)
+
+
+# Mysql 分页查询SQL
+```
+select * from orders_history where type=8 limit 1000,10;
+```
+该条语句将会从表 orders_history 中查询第1000条数据之后的10条数据，也就是第1001条到第1010条数据。
+
+优化思路：避免数据量大时扫描过多的记录   
+添加条件，记录上次返回的主键，再下次查询时使用主键过滤
+
+# Spring的依赖注入
+## 使用set方法注入
+
+UserService.java
+```
+public class UserService{
+    private UserDao userdao;
+    public void setUserDao11(UserDao userdao){
+      this.userdao = userdao;
+    }
+    public void test(){
+      userdao.test();
+    }
+}
+
+```
+applicationContext.xml  
+配置文件使用property标签配置注入内容 
+```
+<bean id = "userServiceId" class="com.xxx.dao.service.UserService">
+    <property name="userDao11" ref = "userDaoId"></property>
+</bean>
+
+<bean id="userDaoId" class="com.xxx.dao.factory.StaticFactory" factory-method="getUserDao"></bean>
+```
+
+## 使用构造器/构造方法注入
+UserService.java
+```
+public class UserService{
+    private UserDao userdaoparam;
+    private int test_a;
+    public UserService(UserDao userdaoparam){
+      this.userdaoparam = userdaoparam;
+    }
+
+    public UserService(){
+
+    }
+}
+```
+applicationContext.xml    
+有参构造函数注入使用constructor-arg标签name是要注入的构造函数的参数名   
+如果注入的内容是引用类型，就使用‘ref=’给对象赋值,如果注入内容是普通数据类型，就使用‘value=’赋值，赋的值可以是任意值，无需提前注册。
+```
+<bean id = "userServiceId" class="com.xxx.dao.service.UserService">
+   <constructor-arg name="userdaoparam" ref="userdaoId"></constructor-arg>
+</bean>
+
+<bean id="userDaoId" class="com.xxx.dao.factory.StaticFactory" factory-method="getUserDao"></bean>
+```
+
+# Spring Bean 相互依赖问题
+一个类A，需要通过构造器注入类B，而类B又需要通过构造器注入类A。如果为类A和B配置的bean被互相注入的话，那么Spring IoC容器将检测出循环引用，并抛出 BeanCurrentlyInCreationException异常。
+
+如果是通过get,set 注入就不会有问题 
 
