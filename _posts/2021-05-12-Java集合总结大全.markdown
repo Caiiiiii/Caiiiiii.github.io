@@ -1,0 +1,130 @@
+---
+layout:     post
+title:      "Java 集合大全"
+subtitle:   "Hello World, Hello Blog"
+date:       2021-02-23
+author:     "Caiiiiii"
+catalog:    true
+header-img: "img/1174180_screenshots_20201019222158_1.jpg"
+tags:
+    - Java  
+---
+
+# Java 集合大全
+Java 集合主要由两个接口派生 ：Collection 和 Map
+
+## Collection
+Collection 主要由三大接口：
+- Set接口：set集合不允许包含相同的元素
+- List：代表一个有序的集合
+- Queue：用于队列的数据结构
+
+### Set
+无序，不可重复
+
+#### HashSet
+HashSet 按照哈希算法存取集合中的对象，存取速度比较快。  
+HashSet首先判断两个元素的哈希值，如果哈希值一样（哈希冲突，也叫哈希碰撞），接着会比较equals 方法 如果 equls 结果为 true，HashSet 就视为同一个元素。如果 equals 为 false 就不是同一个元素。HashSet 通过 hashCode 值来确定元素在内存中的位置。 一个 hashCode 位置上可以存放多个元素。
+
+
+##### LinkedHashSet
+是一个哈希表和链表的结合，且是一个双向链表。  
+继承于HashSet，其方法操作上又与HashSet相同。
+
+#### TreeSet
+TreeSet是一个有序集合，可按照任意顺序将元素插入该集合，当该集合进行迭代时，各个值将自动以排序后的顺序出现。TreeSet中的元素按照升序排序。
+
+
+
+### List
+有序，不唯一
+
+#### ArrayList
+内部是通过数组实现的，允许对元素进行快速随机访问。时间复杂度O(1)  
+适合随机查找和遍历 
+  
+为什么ArrayList查询时间复杂度时O(1)?  
+get(index)方法时获取指定索引位置的元素。
+
+#### LinkedList
+LinkedList 是用链表结构存储数据的。 
+可以当作堆栈、队列和双向队列使用。   
+很适合数据的动态插入和删除，随机访问和遍历速度比较慢。
+
+#### Vector
+通过数组实现的。  
+支持线程的同步，即某一时刻只有一个线程能够写 Vector，避免多线程同时写而引起的不一致性，但实现同步需要很高的花费，因此，访问它比访问 ArrayList 慢 。  
+
+
+
+### Map
+不能包含重复的键、每个键最多只能映射到一个值
+#### HashMap
+HashMap 根据键的 hashCode 值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。      
+HashMap 最多只允许一条记录的键为 null，允许多条记录的值为 null。   
+HashMap 非线程安全，即任一时刻可以有多个线程同时写 HashMap，可能会导致数据的不一致。  
+如果需要满足线程安全，可以用 Collections 的 synchronizedMap 方法使
+HashMap 具有线程安全的能力，或者使用 ConcurrentHashMap。  
+
+
+##### LinkedHashMap
+迭代顺序可以是插入顺序。  
+Key和Value都允许空，Key重复会覆盖、Value允许重复。  
+LinkedHashMap 是 HashMap 的一个子类，保存了记录的插入顺序，在用 Iterator 遍历。
+
+
+#### TreeMap
+底层时红黑树。  
+能够把它保存的记录根据键排序，默认是按键值的升序排序。
+
+#### HashTable
+由数组+链表组成。   
+是线程安全的，无论Key和value都不能为null，实现线程安全的方法是修改数据时锁住整个HashTable，效率低。  
+初始size为11，扩容：newsize = olesize*2+1。  
+Hashtable 继承于Dictionary，实现了Map、Cloneable、java.io.Serializable接口。  
+Hashtable没有自定义哈希算法，而直接采用的key的hashCode()。  
+
+
+
+#### ConcurrentHashMap   在jdk1.7是分段数组+链表，相当于多个数组+链表组成。每次锁住一段数组。   
+
+ 在jdk1.8是数组+链表形式，采用的CAS+ synchronized方式锁住数组。    
+ - 在put()执行时，如果没有hash冲突就直接CAS无锁插入，如果存在hash冲突，就通过加锁（synchronized）的方式插入。  
+
+
+## List 和Set 区别
+List 是有序集合，他讲按照他插入列表的顺序显示元素。  
+Set 是一个无序集合，他不保持任何顺序  
+
+List 允许重复元素  
+Set 不允许重复元素  
+
+List允许任意数量的空值  
+Set最多只能有一个空值
+
+ ## ArrayList和LinkedList区别
+ ArrayList是实现了基于动态数组的数据结构，而LinkedList是基于链表的数据结构；  
+ 对于随机访问get和set，ArrayList要优于LinkedList，因为LinkedList要移动指针；  
+
+ 对于添加和删除操作add和remove，一般大家都会说LinkedList要比ArrayList快，因为ArrayList要移动数据。但是实际情况并非这样，对于添加或删除，LinkedList和ArrayList并不能明确说明谁快谁慢  
+
+ 在插入和删除元素的时候:  
+ ArrayList主要耗时是System.arraycopy，会移动index后面的所有元素。  
+ LinkedList主要耗时在先通过for循环找到index，然后直接插入或删除。  
+
+
+## HashMap 和 HashTable 之间的区别
+### HashMap
+1.由数组+链表组成，链表则是主要为了解决哈希冲突而存在的。  
+ps:jdk1.8后当单个链表超过8个时候变成红黑树。
+2.不是线程安全的，HashMap可以接受为null的键和值。  
+3.初始size为16，当Map中元素超过Entry数组的75%，触发扩容操作，每次扩容是上次的2倍  
+4.HashMap继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。  
+5.HashMap添加元素时，是使用自定义的哈希算法。  
+
+### Hashtable
+1.由数组+链表组成。  
+2.是线程安全的，无论Key和value都不能为null，实现线程安全的方法是修改数据时锁住整个HashTable，效率低。  
+3.初始size为11，扩容：newsize = olesize*2+1。  
+4.Hashtable 继承于Dictionary，实现了Map、Cloneable、java.io.Serializable接口。  
+5.Hashtable没有自定义哈希算法，而直接采用的key的hashCode()。  
