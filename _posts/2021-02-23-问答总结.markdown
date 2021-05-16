@@ -20,21 +20,7 @@ tags:
 在一些类库中被重写，如String Integer，这些有其自身的实现，如比较对象的成员变量。
 
 
-# HashMap 和 HashTable 之间的区别
-## HashMap
-1.由数组+链表组成，链表则是主要为了解决哈希冲突而存在的。  
-ps:jdk1.8后当单个链表超过8个时候变成红黑树。
-2.不是线程安全的，HashMap可以接受为null的键和值。  
-3.初始size为16，当Map中元素超过Entry数组的75%，触发扩容操作，每次扩容是上次的2倍  
-4.HashMap继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。  
-5.HashMap添加元素时，是使用自定义的哈希算法。  
 
-## Hashtable
-1.由数组+链表组成。  
-2.是线程安全的，无论Key和value都不能为null，实现线程安全的方法是修改数据时锁住整个HashTable，效率低。  
-3.初始size为11，扩容：newsize = olesize*2+1。  
-4.Hashtable 继承于Dictionary，实现了Map、Cloneable、java.io.Serializable接口。  
-5.Hashtable没有自定义哈希算法，而直接采用的key的hashCode()。  
 
 
 
@@ -55,7 +41,8 @@ jdk1.8 是因为HashMap在并发情况下执行put方法时会进行是否发生
 
 # HashMap 怎么循环
 1. 用过ForEach 循环遍历  
-```
+
+```   
 for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 			System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 		}
@@ -63,6 +50,7 @@ for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 ```
 
 2. 带泛型的迭代器  
+
 ```
 Iterator<Map.Entry<Integer, Integer>> entries = map.entrySet().iterator();
 		while (entries.hasNext()) {
@@ -173,7 +161,6 @@ class  ThreadMethod implements  Runnable{
     }
 }
 ```
-
 
 # 线程池的实现原理
 
@@ -313,4 +300,21 @@ applicationContext.xml
 一个类A，需要通过构造器注入类B，而类B又需要通过构造器注入类A。如果为类A和B配置的bean被互相注入的话，那么Spring IoC容器将检测出循环引用，并抛出 BeanCurrentlyInCreationException异常。
 
 如果是通过get,set 注入就不会有问题 
+
+
+# Spring 特点
+- 控制翻转IOC
+- 依赖注入 DI
+- 面向切面编程AOP
+- 容器：Spring是一个容器，它包含并管理对象的生命周期
+
+
+# Spring Bean 作用域
+- Singleton：是默认的作用域，如果没有指定作用域配置项，则默认为singletion
+- Prototype：便是一个bean定义对应多个对象实例，Prototype 是原型类型，它在我们创建容器的时候并没有实例化，而是当我们获取bean的时候才会去创建一个对象，而且我们每次获取到的对象都不是同一个对象。
+- request 每次HTTP 请求都会创建一个新的Bean ，仅适用于WebApplicationContext环境
+- session 同一个HTTP Session 共享一个Bean，不同Sess
+ion 适用不同Bean，仅适用于WebApplicationContext环境
+- global-session : 一般用于Portlet应用环境，仅适用于WebApplicationContext环境
+
 
