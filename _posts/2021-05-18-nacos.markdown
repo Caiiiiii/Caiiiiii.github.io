@@ -1,0 +1,193 @@
+---
+layout:     post
+title:      "nacos"
+subtitle:   "Hello World, Hello Blog"
+date:       2021-02-23
+author:     "Caiiiiii"
+catalog:    true
+header-img: "img/292030_screenshots_20210115213236_1.jpg"
+tags:
+    - Spring
+    - Java  
+    - Spring Cloud
+    - nacos
+---
+
+# Nacos
+
+## 什么是Nacos ？
+Nacos 是注册中心组件，也是一个配置中心。类似zookeeper
+
+# 入门Nacos
+
+## 1.下载nacos-service
+[Nacos下载地址](https://github.com/alibaba/nacos/releases)  
+选择nacos-server-x.x.x.zip 版本并解压
+
+进入\nacos\bin文件夹，编辑starup.cmd 中
+```
+# 该模式为单机模式下运行Nacos
+set MODE="standalone"
+```
+
+## 启动nacos-server 服务
+ 启动startup.cmd
+
+## 进入nacos 控制台
+
+地址：http://localhost:8848/nacos
+默认账号密码： nacos/nacos
+
+
+# 整合到Spring Cloud
+
+## 1.创建 Module项目  nacos-user-service
+
+## 2.在pom.xml 文件中引入依赖
+```
+    <properties>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+        <nacos.version>2.1.4.RELEASE</nacos.version>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>${nacos.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>${nacos.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+```
+## 3.创建服务提供者的 bootstrap.yml 文件并配置nacos配置
+```
+spring:
+  application:
+    name: nacos-user-service # 微服务的名字
+  cloud:
+    nacos:
+      config:
+        file-extension: yml
+        server-addr: localhost:8848   #  nacos-server 地址
+        prefix: ${spring.application.name} 
+      discovery:
+        server-addr: localhost:8848   #  nacos-server 地址
+  profiles:
+    active: dev
+```
+
+
+## 4.配置服务提供者
+```
+@SpringBootApplication
+@EnableDiscoveryClient // Spirng Cloud 原生注解
+public class NacosUserApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(NacosUserApplication.class,args);
+    }
+}
+```
+
+## 5.创建TestController
+```
+@RequestMapping("/user")
+@RestController
+public class TestController {
+    @GetMapping("/info")
+    public String test(){
+        return "info";
+    }
+}
+
+```
+
+
+## 6. 创建服务消费者的bootstrap.yml 
+```
+spring:
+  application:
+    name: nacos-customer-service # 微服务的名字
+  cloud:
+    nacos:
+      config:
+        file-extension: yml
+        server-addr: localhost:8848   #  nacos-server 地址
+        prefix: ${spring.application.name}
+      discovery:
+        server-addr: localhost:8848   #  nacos-server 地址
+  profiles:
+    active: dev
+```
+
+## 7.配置服务消费者
+```
+@SpringBootApplication
+@EnableDiscoveryClient
+public class NacosCustomerApplication {
+
+      @LoadBalanced //负载均衡
+      @Bean
+      public RestTemplate restTemplate() {
+            return new RestTemplate();
+      }
+
+      public static void main(String[] args) {
+            SpringApplication.run(NacosCustomerApplication.class,args);
+      }
+}
+```
+
+## 创建TestController 并调用服务提供者接口
+```
+@RestController
+@RequestMapping("/customer")
+public class TestController {
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public TestController(RestTemplate restTemplate) {this.restTemplate = restTemplate;}
+
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public String echo() {
+        return restTemplate.getForObject("http://nacos-user-service/user/info", String.class);
+    }
+}
+```
+
+
+# Demo 中容易出问题的点
+## SpringBoot 与SpirngCloud 版本号要对应
+```
+ <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+ <spring-cloud.version>Hoxton.SR11</spring-cloud.version>
+```
+
+## 项目中子类引用父类依赖
+```
+根目录pom.xml
+    <groupId>org.springcloud</groupId>
+    <artifactId>Spring-Cloud</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+
+子项目pom.xml
+    <parent>
+        <groupId>org.springcloud</groupId>
+        <artifactId>Spring-Cloud</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+```
+
+
