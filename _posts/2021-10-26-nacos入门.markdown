@@ -1,0 +1,284 @@
+---
+layout:     post
+title:      "Nacos Dubbo入门"
+subtitle:   "Hello World, Hello Blog"
+date:       2021-10-26
+author:     "Caiiiiii"
+header-img: "img/post-bg-2015.jpg"
+tags:
+- springcloud
+- nacos
+- dubbo
+---
+
+# Nacos 入门
+## Nacos
+###Maven选择
+springboot 选用的2.4.6版本，对应的springcloud是2020.0.3  
+(如果springboot和springcloud版本不对应，会发出报错）  
+pom.xml 如下： 
+```
+ <properties>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>2021.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>2021.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.4.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>2020.0.3</version>
+            <type>pom</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>application.properties</include>
+                    <include>bootstrap.yml</include>
+                    <include>bootstrap-${package.environment}.yml</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <package.environment>dev</package.environment>
+            </properties>
+            <!-- 是否默认 true表示默认-->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>test</id>
+            <properties>
+                <package.environment>test</package.environment>
+            </properties>
+        </profile>
+
+        <profile>
+            <!-- 生产环境 -->
+            <id>prod</id>
+            <properties>
+                <package.environment>prod</package.environment>
+            </properties>
+        </profile>
+    </profiles>
+```
+
+###resources 文件
+目录如下：
+```
+--resources
+----application.properties
+----bootstrap.yml
+----bootstrap-dev.yml
+----bootstrap-prod.yml
+```
+
+bootstrap.yml
+其中 @package.environment@ 对应的是pom.xml中的profiles
+```
+spring:
+  application:
+    name: springcloud-common
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 172.16.2.91:8848
+        file-extension: properties
+      discovery:
+        server-addr: 172.16.2.91:8848
+  profiles:
+    active: @package.environment@
+```
+
+bootstrap-dev.yml
+其中namespace对应的是nacos网页配置的命名空间的ID
+```
+spring:
+  cloud:
+    nacos:
+      config:
+        namespace: dev
+      discovery:
+        namespace: dev
+```
+
+SpringCloudCommonApplication.java
+```
+@EnableDiscoveryClient
+@SpringBootApplication
+public class SpringcloudCommonApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringcloudCommonApplication.class, args);
+    }
+}
+```
+
+### nacos DATA ID 配置
+命名规则如下
+```
+ ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file.extension}
+```
+
+在nacos控制面板的配置内容中输入：
+```aidl
+#spring
+server.port=17009
+##JDBC
+spring.datasource.url=jdbc:oracle:thin:XXXXX
+spring.datasource.username=XXX
+spring.datasource.password=XXX
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.type=com.zaxxer.hikari.HikariDataSource
+spring.datasource.hikari.minimum-idle=1
+spring.datasource.hikari.maximum-pool-size=5
+spring.datasource.hikari.auto-commit=true
+spring.datasource.hikari.idle-timeout=600000
+spring.datasource.hikari.pool-name=HikariCP
+spring.datasource.hikari.max-lifetime=1800000
+spring.datasource.hikari.connection-timeout=600000
+spring.datasource.hikari.connection-test-query=SELECT 1 from dual
+
+#TEST
+test.num=1
+```
+
+## Dubbo
+### maven配置
+step1：依照上述nacos得配置,新增maven
+```aidl
+  <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+  
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+            <version>${spring-cloud-alibaba.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.6.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.10</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.32.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+```
+
+step2：在Application启动类加上注解 @EnableDubbo
+
+step3：编写service和serviceImpl 加上dubbo的@Service注解
+
+step4： 在nacos配置文件中加入：
+```aidl
+################dubbo配置################
+dubbo.application.name=springcloud-common-provider
+#提供者通用缺省值配置
+dubbo.provider.group=dev
+dubbo.provider.protocol=dubbo
+dubbo.provider.timeout=5000
+dubbo.provider.retries=3
+#指标监控
+dubbo.metrics.protocol=dubbo
+dubbo.metrics.port=20890
+#使用zookeeper广播注册中心暴露服务地址
+dubbo.registry.address= ##zookeeper address ip:port
+dubbo.registry.protocol=zookeeper
+dubbo.registry.group=dev
+dubbo.registry.simplified=true
+dubbo.registry.client=curator
+#元数据中心
+dubbo.metadata-report.address=zookeeper://  ##zookeeper address ip:port
+dubbo.metadata-report.cycle-report=false
+dubbo.metadata-report.retry-period=4590
+dubbo.metadata-report.sync-report=true
+dubbo.metadata-report.group=dev
+dubbo.metadata-report.retry-times=23
+#用dubbo 协议在20880端口暴露服务
+dubbo.protocol.accepts=20
+dubbo.protocol.name=dubbo
+#自动分配端口
+dubbo.protocol.port=-1
+dubbo.protocol.payload=1048576
+#配置中心
+dubbo.config-center.address=  ##zookeeper address ip:port
+dubbo.config-center.protocol=zookeeper
+dubbo.config-center.group=dev
+#连接监控中心
+dubbo.monitor.protocol=registry
+```
+
+
+
+
+
