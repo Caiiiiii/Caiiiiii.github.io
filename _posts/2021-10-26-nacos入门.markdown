@@ -17,7 +17,7 @@ tags:
 springboot 选用的2.4.6版本，对应的springcloud是2020.0.3  
 (如果springboot和springcloud版本不对应，会发出报错）  
 pom.xml 如下： 
-```
+```aidl
  <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -117,7 +117,7 @@ pom.xml 如下：
 
 ### resources 文件
 目录如下：
-```
+```aidl
 --resources
 ----application.properties
 ----bootstrap.yml
@@ -127,7 +127,7 @@ pom.xml 如下：
 
 bootstrap.yml
 其中 @package.environment@ 对应的是pom.xml中的profiles
-```
+```aidl
 spring:
   application:
     name: springcloud-common
@@ -145,7 +145,7 @@ spring:
 
 bootstrap-dev.yml
 其中namespace对应的是nacos网页配置的命名空间的ID
-```
+```aidl
 spring:
   cloud:
     nacos:
@@ -156,7 +156,7 @@ spring:
 ```
 
 SpringCloudCommonApplication.java
-```
+```aidl
 @EnableDiscoveryClient
 @SpringBootApplication
 public class SpringcloudCommonApplication {
@@ -168,7 +168,7 @@ public class SpringcloudCommonApplication {
 
 ### nacos DATA ID 配置
 命名规则如下
-```
+```aidl
  ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file.extension}
 ```
 
