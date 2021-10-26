@@ -13,7 +13,7 @@ tags:
 
 # Nacos 入门
 ## Nacos
-###Maven选择
+### Maven选择
 springboot 选用的2.4.6版本，对应的springcloud是2020.0.3  
 (如果springboot和springcloud版本不对应，会发出报错）  
 pom.xml 如下： 
@@ -115,7 +115,7 @@ pom.xml 如下：
     </profiles>
 ```
 
-###resources 文件
+### resources 文件
 目录如下：
 ```
 --resources
